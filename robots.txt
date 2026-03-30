@@ -1,0 +1,66 @@
+# robots.txt — SAVE | Chofer de Reemplazo Premium Lima
+# https://tomasave.com/robots.txt
+
+User-agent: *
+Allow: /
+
+# Permitir rastreo de todos los recursos estáticos
+Allow: /*.css
+Allow: /*.js
+Allow: /*.png
+Allow: /*.jpg
+Allow: /*.webp
+Allow: /*.svg
+
+# Bloquear rutas de sistema innecesarias
+Disallow: /admin/
+Disallow: /private/
+Disallow: /.git/
+Disallow: /node_modules/
+
+# Crawl-delay moderado para bots secundarios
+Crawl-delay: 5
+
+# Sitemap
+Sitemap: https://tomasave.com/sitemap.xml
+
+# ─── Bots específicos ─────────────────────────
+
+# Googlebot — sin restricciones
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+# Bingbot — sin restricciones
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 0
+
+# ChatGPT / OpenAI — permitir indexación
+User-agent: GPTBot
+Allow: /
+
+# ClaudeBot / Anthropic — permitir indexación
+User-agent: ClaudeBot
+Allow: /
+
+# Google AdsBot — permitir para campañas
+User-agent: AdsBot-Google
+Allow: /
+
+# Bytespider (TikTok) — bloquear
+User-agent: Bytespider
+Disallow: /
+
+# Bloquear scrapers conocidos de spam
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
