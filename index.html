@@ -18,17 +18,6 @@
   'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
   })(window,document,'script','dataLayer','GTM-K837VJQZ');</script>
   <!-- End Google Tag Manager -->
-
-  <!-- Google Analytics 4 (GA4) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NQQ0BH3835"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-NQQ0BH3835');
-  </script>
-  <!-- End Google Analytics 4 -->
-
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://tomasave.com/" />
   <meta property="og:title" content="SAVE | Chofer de Reemplazo Premium en Lima 24/7" />
@@ -505,61 +494,99 @@
       padding: var(--section-py) 0;
       background: var(--white);
     }
-    .services-header { margin-bottom: 56px; }
+    .services-header { margin-bottom: 64px; }
+    .services-header .section-title::after {
+      content: '';
+      display: block;
+      width: 56px;
+      height: 3px;
+      background: var(--green);
+      border-radius: 2px;
+      margin-top: 18px;
+    }
     .services-grid {
       display: grid;
       grid-template-columns: repeat(3,1fr);
-      gap: 20px;
+      gap: 40px 28px;
     }
+
+    /* Bubble card */
     .service-card {
-      background: var(--gray-light);
-      border-radius: var(--radius-lg);
-      padding: 44px 36px;
+      background: transparent;
+      border: none;
+      border-radius: 0;
+      padding: 0;
       position: relative;
-      overflow: hidden;
-      border: 1px solid var(--gray-mid);
-      transition: var(--transition);
       display: flex;
       flex-direction: column;
-      gap: 18px;
-    }
-    .service-card::after {
-      content: '';
-      position: absolute;
-      bottom: 0; left: 0; right: 0;
-      height: 3px;
-      background: var(--green);
-      transform: scaleX(0);
-      transform-origin: left;
+      align-items: center;
+      text-align: center;
+      gap: 0;
       transition: var(--transition);
     }
-    .service-card:hover {
-      transform: translateY(-5px);
-      box-shadow: var(--shadow-card);
-      border-color: rgba(45,198,83,0.2);
+    .service-card::after { display: none; }
+    .service-card:hover { transform: translateY(-6px); box-shadow: none; border-color: transparent; }
+
+    /* Bubble image */
+    .service-bubble-wrap {
+      position: relative;
+      width: 200px;
+      height: 200px;
+      margin-bottom: 28px;
+      flex-shrink: 0;
     }
-    .service-card:hover::after { transform: scaleX(1); }
-    .service-card.highlight {
-      background: var(--black);
-      border-color: transparent;
+    .service-bubble-wrap::before {
+      content: '';
+      position: absolute;
+      inset: -6px;
+      border-radius: 50%;
+      border: 2px solid rgba(45,198,83,0.25);
+      transition: var(--transition);
     }
-    .service-card.highlight:hover { border-color: rgba(45,198,83,0.3); }
-    .service-icon {
-      width: 54px; height: 54px;
+    .service-bubble-wrap::after {
+      content: '';
+      position: absolute;
+      inset: -14px;
+      border-radius: 50%;
+      border: 1px solid rgba(45,198,83,0.1);
+      transition: var(--transition);
+    }
+    .service-card:hover .service-bubble-wrap::before {
+      border-color: var(--green);
+      inset: -8px;
+      box-shadow: 0 0 0 4px rgba(45,198,83,0.08);
+    }
+    .service-bubble-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+      display: block;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.14), 0 0 0 5px rgba(45,198,83,0.1);
+      transition: var(--transition);
+    }
+    .service-card:hover .service-bubble-wrap img {
+      box-shadow: 0 20px 52px rgba(0,0,0,0.18), 0 0 0 5px rgba(45,198,83,0.22);
+    }
+
+    /* Green accent dot on bubble */
+    .service-bubble-badge {
+      position: absolute;
+      bottom: 10px;
+      right: 8px;
+      width: 38px;
+      height: 38px;
       background: var(--green);
-      border-radius: 14px;
+      border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 6px 20px rgba(45,198,83,0.25);
-      flex-shrink: 0;
+      box-shadow: 0 4px 16px rgba(45,198,83,0.45);
+      border: 2px solid white;
+      z-index: 2;
     }
-    .service-card.highlight .service-icon {
-      background: rgba(45,198,83,0.12);
-      box-shadow: none;
-      border: 1px solid rgba(45,198,83,0.2);
-    }
-    .service-icon svg { width: 24px; height: 24px; color: var(--white); }
+    .service-bubble-badge svg { width: 18px; height: 18px; color: white; }
+
     .service-tag {
       display: inline-block;
       font-size: 0.68rem;
@@ -571,23 +598,30 @@
       padding: 3px 10px;
       border-radius: 20px;
       width: fit-content;
+      margin-bottom: 10px;
     }
     .service-card h3 {
       font-family: var(--font-display);
-      font-size: 1.6rem;
+      font-size: 1.55rem;
       font-weight: 700;
       color: var(--black);
-      line-height: 1.2;
+      line-height: 1.18;
+      margin-bottom: 12px;
     }
-    .service-card.highlight h3 { color: var(--white); }
+    .service-card.highlight h3 { color: var(--black); }
     .service-card p {
-      font-size: 0.95rem;
+      font-size: 0.93rem;
       color: var(--gray-text);
-      line-height: 1.7;
+      line-height: 1.72;
       font-weight: 300;
       flex: 1;
+      max-width: 300px;
     }
-    .service-card.highlight p { color: rgba(255,255,255,0.55); }
+    .service-card.highlight p { color: var(--gray-text); }
+    .service-card.highlight { background: transparent; border-color: transparent; }
+    .service-card.highlight:hover { border-color: transparent; }
+    /* Remove old icon styles */
+    .service-icon { display: none; }
     .service-link {
       display: inline-flex;
       align-items: center;
@@ -596,7 +630,7 @@
       font-weight: 600;
       color: var(--green);
       transition: var(--transition);
-      margin-top: auto;
+      margin-top: 14px;
     }
     .service-link:hover { gap: 10px; }
     .service-link svg { width: 16px; height: 16px; }
@@ -605,7 +639,20 @@
     .benefits {
       padding: var(--section-py) 0;
       background: var(--gray-light);
+      background-image: url('Background.webp');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      position: relative;
     }
+    .benefits::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(249,249,249,0.93) 0%, rgba(242,242,242,0.88) 100%);
+      z-index: 0;
+    }
+    .benefits > .container { position: relative; z-index: 1; }
     .benefits-inner {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -701,7 +748,20 @@
     .how {
       padding: var(--section-py) 0;
       background: var(--white);
+      background-image: url('Background2.webp');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      position: relative;
     }
+    .how::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.90) 100%);
+      z-index: 0;
+    }
+    .how > .container { position: relative; z-index: 1; }
     .how-header { text-align: center; margin-bottom: 64px; }
     .how-header .section-desc { margin: 0 auto; }
     .how-steps-row {
@@ -778,10 +838,37 @@
     /* ─── CLIENTS ─── */
     .clients {
       padding: 72px 0;
-      background: var(--gray-light);
+      background-image: url('Background5.webp');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
       border-top: 1px solid var(--gray-mid);
       border-bottom: 1px solid var(--gray-mid);
+      position: relative;
     }
+    .clients::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(17,17,17,0.82) 0%, rgba(17,17,17,0.75) 100%);
+      z-index: 0;
+    }
+    .clients > .container { position: relative; z-index: 1; }
+    .clients .clients-label { color: rgba(255,255,255,0.5); }
+    .clients .section-title { color: var(--white); }
+    .clients .section-title em { color: var(--green); }
+    .clients .client-card {
+      background: rgba(255,255,255,0.07);
+      border-color: rgba(255,255,255,0.12);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+    .clients .client-card:hover {
+      background: rgba(255,255,255,0.12);
+      border-color: rgba(45,198,83,0.4);
+    }
+    .clients .client-name { color: var(--white); }
+    .clients .client-type { color: rgba(255,255,255,0.45); }
     .clients-header {
       text-align: center;
       margin-bottom: 44px;
@@ -863,8 +950,36 @@
     /* ─── FAQ ─── */
     .faq {
       padding: var(--section-py) 0;
-      background: var(--white);
+      background-image: url('BackgroundCRASH.png');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      position: relative;
     }
+    .faq::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(17,17,17,0.88) 0%, rgba(13,107,39,0.30) 50%, rgba(17,17,17,0.92) 100%);
+      z-index: 0;
+    }
+    .faq > .container { position: relative; z-index: 1; }
+    .faq .section-label { color: var(--green); }
+    .faq .section-title { color: var(--white); }
+    .faq .section-title em { color: var(--green); }
+    .faq .section-desc { color: rgba(255,255,255,0.5); }
+    .faq .faq-item {
+      background: rgba(255,255,255,0.05);
+      border-color: rgba(255,255,255,0.1);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+    .faq .faq-item:hover {
+      border-color: rgba(45,198,83,0.35);
+      background: rgba(255,255,255,0.09);
+    }
+    .faq .faq-item h3 { color: var(--white); }
+    .faq .faq-item p { color: rgba(255,255,255,0.55); }
     .faq-header { text-align: center; margin-bottom: 56px; }
     .faq-header .section-desc { margin: 0 auto; }
     .faq-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 16px; }
@@ -897,7 +1012,20 @@
     .testimonials {
       padding: var(--section-py) 0;
       background: var(--black);
+      background-image: url('BackgroundMK.webp');
+      background-size: cover;
+      background-position: center top;
+      background-attachment: fixed;
+      position: relative;
     }
+    .testimonials::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(17,17,17,0.90) 0%, rgba(17,17,17,0.85) 100%);
+      z-index: 0;
+    }
+    .testimonials > .container { position: relative; z-index: 1; }
     .testimonials-header { text-align: center; margin-bottom: 56px; }
     .testimonials-header .section-title { color: var(--white); }
     .testimonials-header .section-desc { color: rgba(255,255,255,0.4); margin: 0 auto; }
@@ -954,6 +1082,10 @@
     .cta-section {
       padding: var(--section-py) 0;
       background: var(--green);
+      background-image: url('Background4.webp');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
       position: relative;
       overflow: hidden;
       text-align: center;
@@ -961,10 +1093,9 @@
     .cta-section::before {
       content: '';
       position: absolute;
-      top: -50%; left: -20%;
-      width: 700px; height: 700px;
-      background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 65%);
-      border-radius: 50%;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(45,198,83,0.88) 0%, rgba(13,107,39,0.82) 100%);
+      z-index: 0;
       pointer-events: none;
     }
     .cta-section::after {
@@ -975,6 +1106,7 @@
       background: radial-gradient(circle, rgba(0,0,0,0.07) 0%, transparent 65%);
       border-radius: 50%;
       pointer-events: none;
+      z-index: 0;
     }
     .cta-content { position: relative; z-index: 2; }
     .cta-eyebrow {
@@ -1222,7 +1354,11 @@
     }
     @media (max-width:640px) {
       :root { --section-py:56px; }
-      .services-grid { grid-template-columns:1fr; }
+      .services-grid { grid-template-columns:1fr; gap: 48px; }
+      /* Disable parallax on mobile — iOS doesn't support fixed bg */
+      .benefits, .how, .clients, .faq, .testimonials, .cta-section {
+        background-attachment: scroll;
+      }
       .how-steps-row { grid-template-columns:1fr; gap:32px; }
       .how-steps-row::before { display:none; }
       .faq-grid { grid-template-columns:1fr; }
@@ -1368,9 +1504,14 @@
           <p class="section-desc">Desde una salida nocturna hasta la cobertura completa de tu evento. SAVE tiene el servicio que necesitas.</p>
         </div>
         <div class="services-grid">
+
+          <!-- Card 1: Chofer de Reemplazo -->
           <article class="service-card reveal reveal-delay-1">
-            <div class="service-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z"/><path d="M13 6l-1 4H3l1-4h9zM13 6h5l2 5h-7l-1-5z"/></svg>
+            <div class="service-bubble-wrap">
+              <img src="servicio4.webp" alt="Chofer de Reemplazo Lima — SAVE" width="200" height="200" loading="lazy">
+              <div class="service-bubble-badge" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z"/><path d="M13 6l-1 4H3l1-4h9zM13 6h5l2 5h-7l-1-5z"/></svg>
+              </div>
             </div>
             <span class="service-tag">Servicio estrella</span>
             <h3>Chofer de Reemplazo</h3>
@@ -1382,12 +1523,16 @@
             </a>
           </article>
 
+          <!-- Card 2: Chofer para Eventos -->
           <article class="service-card highlight reveal reveal-delay-2">
-            <div class="service-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+            <div class="service-bubble-wrap">
+              <img src="servicio5.webp" alt="Chofer para Eventos Lima — SAVE" width="200" height="200" loading="lazy">
+              <div class="service-bubble-badge" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+              </div>
             </div>
             <span class="service-tag">Eventos</span>
-            <h3 style="color:white;">Chofer para Eventos</h3>
+            <h3>Chofer para Eventos</h3>
             <p>Equipo amplio de choferes de reemplazo para cubrir tu evento completo. Bodas, cenas corporativas, fiestas privadas y reuniones de empresa. Todos tus invitados llegan seguros.</p>
             <a href="https://wa.me/51981560156?text=Hola!%20deseo%20contratar%20choferes%20para%20un%20evento."
                target="_blank" rel="noopener" class="service-link" data-event="whatsapp_click">
@@ -1396,9 +1541,13 @@
             </a>
           </article>
 
+          <!-- Card 3: Valet Parking -->
           <article class="service-card reveal reveal-delay-3">
-            <div class="service-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
+            <div class="service-bubble-wrap">
+              <img src="servicio6.webp" alt="Valet Parking Lima — SAVE" width="200" height="200" loading="lazy">
+              <div class="service-bubble-badge" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
+              </div>
             </div>
             <span class="service-tag">Premium</span>
             <h3>Valet Parking</h3>
@@ -1409,6 +1558,7 @@
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </a>
           </article>
+
         </div>
       </div>
     </section>
