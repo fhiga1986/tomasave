@@ -963,7 +963,7 @@
     .benefits {
       padding: var(--section-py) 0;
       background: var(--gray-light);
-      background-image: url('Background.webp');
+      background-image: none; /* loaded lazily via JS */
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
@@ -1072,7 +1072,7 @@
     .how {
       padding: var(--section-py) 0;
       background: var(--white);
-      background-image: url('Background2.webp');
+      background-image: none; /* loaded lazily via JS */
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
@@ -1162,7 +1162,7 @@
     /* ─── CLIENTS ─── */
     .clients {
       padding: 72px 0;
-      background-image: url('Background5.webp');
+      background-image: none; /* loaded lazily via JS */
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
@@ -1274,7 +1274,7 @@
     /* ─── FAQ ─── */
     .faq {
       padding: var(--section-py) 0;
-      background-image: url('BackgroundCRASH.png');
+      background-image: none; /* loaded lazily via JS */
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
@@ -1336,7 +1336,7 @@
     .testimonials {
       padding: var(--section-py) 0;
       background: var(--black);
-      background-image: url('BackgroundMK.webp');
+      background-image: none; /* loaded lazily via JS */
       background-size: cover;
       background-position: center top;
       background-attachment: fixed;
@@ -1406,7 +1406,7 @@
     .cta-section {
       padding: var(--section-py) 0;
       background: var(--green);
-      background-image: url('Background4.webp');
+      background-image: none; /* loaded lazily via JS */
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
@@ -1722,7 +1722,7 @@
     <nav class="navbar" id="navbar" aria-label="Navegación principal">
       <div class="container navbar-inner">
         <a href="/" class="nav-logo" aria-label="SAVE — Inicio">
-          <img src="logo-save-nav.webp" alt="SAVE Chofer de Reemplazo Lima" width="44" height="44" loading="lazy">
+          <img src="logo-save-nav.webp" alt="SAVE Chofer de Reemplazo Lima" width="44" height="44" loading="eager" fetchpriority="high" decoding="async">
           <span class="nav-logo-text">SAVE</span>
         </a>
         <a href="https://wa.me/51981560156?text=Hola!%20deseo%20solicitar%20un%20servicio%20de%20chofer%20de%20reemplazo%20que%20garantice%20calidad%20y%20seguridad."
@@ -1764,7 +1764,7 @@
           </div>
           <div class="hero-visual">
             <div class="hero-logo-frame">
-              <img src="logo-save-hero.webp" alt="SAVE — Chofer de Reemplazo Premium Lima" width="280" height="280" loading="lazy">
+              <img src="logo-save-hero.webp" alt="SAVE — Chofer de Reemplazo Premium Lima" width="280" height="280" loading="eager" fetchpriority="high" decoding="async">
             </div>
             <div class="hero-stats">
               <div class="hero-stat">
@@ -1986,7 +1986,7 @@
     </section>
 
     <!-- BENEFITS -->
-    <section class="benefits" id="beneficios" aria-labelledby="benefits-heading">
+    <section class="benefits" id="beneficios" aria-labelledby="benefits-heading" data-bg="Background.webp">
       <div class="container">
         <div class="benefits-inner">
           <div>
@@ -2049,7 +2049,7 @@
     </section>
 
     <!-- HOW IT WORKS -->
-    <section class="how" id="como-funciona" aria-labelledby="how-heading">
+    <section class="how" id="como-funciona" aria-labelledby="how-heading" data-bg="Background2.webp">
       <div class="container">
         <div class="how-header reveal">
           <span class="section-label">Proceso simple</span>
@@ -2086,7 +2086,7 @@
     </section>
 
     <!-- CLIENTS -->
-    <section class="clients" id="clientes" aria-labelledby="clients-heading">
+    <section class="clients" id="clientes" aria-labelledby="clients-heading" data-bg="Background5.webp">
       <div class="container">
         <div class="clients-header reveal">
           <span class="clients-label">Clientes exclusivos que confían en SAVE</span>
@@ -2116,7 +2116,7 @@
     </section>
 
     <!-- FAQ -->
-    <section class="faq" id="preguntas" aria-labelledby="faq-heading">
+    <section class="faq" id="preguntas" aria-labelledby="faq-heading" data-bg="BackgroundCRASH.webp">
       <div class="container">
         <div class="faq-header reveal">
           <span class="section-label">Preguntas frecuentes</span>
@@ -2153,7 +2153,7 @@
     </section>
 
     <!-- TESTIMONIALS -->
-    <section class="testimonials" id="testimonios" aria-labelledby="testimonials-heading">
+    <section class="testimonials" id="testimonios" aria-labelledby="testimonials-heading" data-bg="BackgroundMK.webp">
       <div class="container">
         <div class="testimonials-header reveal">
           <span class="section-label" style="color:rgba(255,255,255,0.35);">Lo que dicen nuestros clientes</span>
@@ -2208,7 +2208,7 @@
     </section>
 
     <!-- CTA FINAL -->
-    <section class="cta-section" id="contacto" aria-labelledby="cta-heading">
+    <section class="cta-section" id="contacto" aria-labelledby="cta-heading" data-bg="Background4.webp">
       <div class="container">
         <div class="cta-content">
           <span class="cta-eyebrow reveal">Disponible ahora · Lima Metropolitana · 24/7</span>
@@ -2334,7 +2334,38 @@
       });
     });
 
-    // ── Story Banner ──────────────────────────────
+    // ── Lazy Background Images ────────────────────
+    (function() {
+      const sections = document.querySelectorAll('[data-bg]');
+      if (!sections.length) return;
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const el = entry.target;
+            const bg = el.dataset.bg;
+            if (bg) {
+              const img = new Image();
+              img.onload = () => { el.style.backgroundImage = `url('${bg}')`; };
+              img.src = bg;
+            }
+            observer.unobserve(el);
+          }
+        });
+      }, { rootMargin: '200px 0px' }); // start loading 200px before visible
+      sections.forEach(s => observer.observe(s));
+    })();
+
+    // ── Story banner: preload next slide image ────
+    (function() {
+      const storyImgs = ['Party.webp','Accident.webp','Saveyou.webp','Sleep.webp'];
+      // First slide already visible — preload slide 2 immediately
+      const preload = (src) => { const i = new Image(); i.src = src; };
+      preload(storyImgs[0]);
+      setTimeout(() => preload(storyImgs[1]), 1000);
+      setTimeout(() => preload(storyImgs[2]), 3000);
+      setTimeout(() => preload(storyImgs[3]), 5000);
+    })();
+    // ─────────────────────────────────────────────
     (function() {
       const DURATION = 5000; // ms per slide
       const slides   = document.querySelectorAll('.story-slide');
