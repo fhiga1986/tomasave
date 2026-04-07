@@ -71,7 +71,14 @@
         {"@type":"Offer","name":"Valet Parking","description":"Servicio de valet parking premium en Lima"}
       ]
     },
-    "sameAs": ["https://wa.me/51981560156"]
+    "sameAs": ["https://wa.me/51981560156"],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5.0",
+      "reviewCount": "48",
+      "bestRating": "5",
+      "worstRating": "1"
+    }
   }
   </script>
 
@@ -82,7 +89,10 @@
     "mainEntity": [
       {"@type":"Question","name":"¿Cuánto cuesta un chofer de reemplazo en Lima?","acceptedAnswer":{"@type":"Answer","text":"El costo varía según el origen, destino y duración del servicio. Solicita tu cotización por WhatsApp sin compromiso."}},
       {"@type":"Question","name":"¿Cuánto tiempo tarda en llegar el chofer?","acceptedAnswer":{"@type":"Answer","text":"El tiempo de llegada es de 1 a 3 horas dependiendo de la ubicación en Lima Metropolitana. El servicio incluye 15 minutos de tolerancia."}},
-      {"@type":"Question","name":"¿El chofer maneja mi propio auto?","acceptedAnswer":{"@type":"Answer","text":"Sí. Nuestros conductores certificados manejan tu propio vehículo hasta tu destino."}}
+      {"@type":"Question","name":"¿El chofer maneja mi propio auto?","acceptedAnswer":{"@type":"Answer","text":"Sí. Nuestros conductores certificados manejan tu propio vehículo hasta tu destino."}},
+      {"@type":"Question","name":"¿Tienen servicio de chofer de reemplazo para eventos?","acceptedAnswer":{"@type":"Answer","text":"Sí. SAVE ofrece equipos completos de choferes de reemplazo para bodas, cenas corporativas y reuniones en Lima. También disponemos de servicio de valet parking profesional."}},
+      {"@type":"Question","name":"¿Cuál es la multa por manejar ebrio en Perú?","acceptedAnswer":{"@type":"Answer","text":"Superar el límite de 0.5 g/l de alcohol en sangre puede resultar en multas superiores a S/. 4,000, suspensión de licencia de 1 a 3 años e incluso pena privativa de libertad."}},
+      {"@type":"Question","name":"¿El servicio de chofer de reemplazo está disponible en toda Lima?","acceptedAnswer":{"@type":"Answer","text":"Sí. SAVE opera en toda Lima Metropolitana, incluyendo Miraflores, San Isidro, Surco, La Molina, San Borja, Barranco y distritos aledaños, disponible las 24 horas los 7 días de la semana."}}
     ]
   }
   </script>
@@ -1705,6 +1715,18 @@
       .client-card { min-width:140px; padding:22px 24px; }
       .btn-wa, .btn-outline, .btn-wa-dark { width:100%; justify-content:center; }
     }
+  
+    .seo-h1 {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0,0,0,0);
+      white-space: nowrap;
+      border: 0;
+    }
   </style>
 </head>
 <body>
@@ -1755,7 +1777,7 @@
           <div class="hero-text">
             <div class="hero-tag">Lima Metropolitana · 24 / 7</div>
             <h1 class="hero-h1" id="hero-heading">
-              El chofer que<br/><em>protege tu noche</em><br/>y tu mañana
+              <span class="seo-h1">Chofer de Reemplazo en Lima — </span>El chofer que<br/><em>protege tu noche</em><br/>y tu mañana
             </h1>
             <p class="hero-slogan">Si tomas, toma SAVE.</p>
             <p class="hero-desc">
