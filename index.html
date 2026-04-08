@@ -9,27 +9,23 @@
   <meta name="author" content="SAVE — Chofer de Reemplazo Lima" />
   <meta name="robots" content="index, follow" />
   <meta name="google-site-verification" content="8U-Eb5mYqt-9U6mN5gyjgRgYLU6bszNLMTOVDiZN3jU" />
-    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
   <link rel="manifest" href="site.webmanifest" />
   <link rel="canonical" href="https://tomasave.com/" />
+  <link rel="preload" as="image" href="logo-save-hero.webp" fetchpriority="high" />
+  <link rel="preload" as="image" href="logo-save-nav.webp" />
 
-  <!-- Google Tag Manager -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-K837VJQZ');</script>
-  <!-- End Google Tag Manager -->
+
   <!-- Google Analytics 4 (GA4) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GT6MZ23KWT"></script>
-  <script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GT6MZ23KWT" defer></script>
+  <script defer>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-GT6MZ23KWT');
+    gtag('config', 'G-GT6MZ23KWT', {'send_page_view': true});
   </script>
   <!-- End Google Analytics 4 -->
   <meta property="og:type" content="website" />
@@ -104,7 +100,9 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Outfit:wght@300;400;500;600&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Outfit:wght@300;400;500;600&display=swap" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Outfit:wght@300;400;500;600&display=swap" /></noscript>
 
   <style>
     :root {
@@ -1966,7 +1964,7 @@
           <!-- Card 1: Chofer de Reemplazo -->
           <article class="service-card reveal reveal-delay-1">
             <div class="service-bubble-wrap">
-              <img src="servicio4.webp" alt="Chofer de Reemplazo Lima — SAVE" width="200" height="200" loading="lazy">
+              <img src="servicio4.webp" alt="Chofer de Reemplazo Lima — SAVE" width="200" height="200" loading="lazy" decoding="async">
               <div class="service-bubble-badge" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z"/><path d="M13 6l-1 4H3l1-4h9zM13 6h5l2 5h-7l-1-5z"/></svg>
               </div>
@@ -1984,7 +1982,7 @@
           <!-- Card 2: Chofer para Eventos -->
           <article class="service-card highlight reveal reveal-delay-2">
             <div class="service-bubble-wrap">
-              <img src="servicio5.webp" alt="Chofer para Eventos Lima — SAVE" width="200" height="200" loading="lazy">
+              <img src="servicio5.webp" alt="Chofer para Eventos Lima — SAVE" width="200" height="200" loading="lazy" decoding="async">
               <div class="service-bubble-badge" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
               </div>
@@ -2002,7 +2000,7 @@
           <!-- Card 3: Valet Parking -->
           <article class="service-card reveal reveal-delay-3">
             <div class="service-bubble-wrap">
-              <img src="servicio6.webp" alt="Valet Parking Lima — SAVE" width="200" height="200" loading="lazy">
+              <img src="servicio6.webp" alt="Valet Parking Lima — SAVE" width="200" height="200" loading="lazy" decoding="async">
               <div class="service-bubble-badge" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
               </div>
@@ -2278,7 +2276,7 @@
       <div class="footer-grid">
         <div>
           <div class="footer-brand">
-            <img src="logo-save-footer.webp" alt="SAVE Chofer de Reemplazo Lima" width="48" height="48" loading="lazy">
+            <img src="logo-save-footer.webp" alt="SAVE Chofer de Reemplazo Lima" width="48" height="48" loading="lazy" decoding="async">
             <div>
               <div class="footer-brand-name">SAVE</div>
               <div class="footer-tagline">Si tomas, toma SAVE.</div>
@@ -2488,5 +2486,13 @@
     })();
     // ─────────────────────────────────────────────
   </script>
+
+  <!-- Google Tag Manager (deferred) -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-K837VJQZ');</script>
+  <!-- End Google Tag Manager -->
 </body>
 </html>
