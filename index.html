@@ -1781,6 +1781,61 @@
     .social-row--center { justify-content: center; margin-top: 0; }
     /* Client logo img */
     .client-logo-img { display:flex; align-items:center; justify-content:center; height:64px; margin-bottom:8px; }
+  
+    /* ── Hero texto rediseñado ── */
+    .hero-pretext {
+      display: block;
+      font-family: 'Outfit', sans-serif;
+      font-size: clamp(1rem, 2.2vw, 1.3rem);
+      font-weight: 400;
+      color: rgba(255,255,255,0.55);
+      letter-spacing: 0.02em;
+      line-height: 1.6;
+      margin-bottom: 10px;
+      animation: fadeSlideUp 0.8s ease both;
+    }
+    .hero-slogan-main {
+      font-family: 'Outfit', sans-serif;
+      font-size: clamp(2.8rem, 7vw, 5.2rem);
+      font-weight: 700;
+      line-height: 1.0;
+      letter-spacing: -0.02em;
+      color: #2DC653;
+      text-shadow: 0 0 60px rgba(45,198,83,0.35);
+      margin: 0 0 24px 0;
+      animation: fadeSlideUp 0.9s ease 0.15s both;
+      position: relative;
+    }
+    .slogan-line1 {
+      font-size: 1em;
+      color: #2DC653;
+    }
+    .slogan-line2 {
+      font-size: 1.35em;
+      color: #FFFFFF;
+      display: inline-block;
+    }
+    .hero-slogan-main::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 3px;
+      background: #2DC653;
+      margin-top: 14px;
+      border-radius: 2px;
+      animation: expandLine 0.6s ease 0.8s both;
+    }
+    @keyframes fadeSlideUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes expandLine {
+      from { width: 0; }
+      to   { width: 60px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .hero-pretext, .hero-slogan-main, .hero-slogan-main::after { animation: none; }
+    }
   </style>
 </head>
 <body>
@@ -1830,10 +1885,11 @@
         <div class="hero-content">
           <div class="hero-text">
             <div class="hero-tag"><img src="peru.webp" alt="Perú" width="20" height="14" style="display:inline-block;vertical-align:middle;margin:0 2px;" loading="lazy" decoding="async"> Perú · Sin Límite de Cobertura · 24/7</div>
-            <h1 class="hero-h1" id="hero-heading" style="font-family:'Outfit',sans-serif;font-style:normal;letter-spacing:-0.01em;">
-              <span class="seo-h1">Chofer de Reemplazo en Lima — </span>SI TOMAS<br/>NO MANEJES,<br/>Y SI VAS A TOMAR<br/><span style="color:#2DC653;font-size:1.1em;">NOS LLAMAS</span>
+            <h1 class="hero-h1" id="hero-heading">
+              <span class="seo-h1">Chofer de Reemplazo en Lima — </span>
+              <span class="hero-pretext">Si tomas no manejes,<br/>y si vas a tomar nos llamas.</span>
             </h1>
-            <p class="hero-slogan" style="font-style:normal;text-transform:uppercase;letter-spacing:0.08em;font-size:1.1rem;">Si tomas, toma SAVE.</p>
+            <p class="hero-slogan-main"><span class="slogan-line1">SI TOMAS,</span><br/><span class="slogan-line2">TOMA SAVE.</span></p>
             <p class="hero-desc">
               Chofer de Reemplazo Experto sin límite de cobertura en Perú. Conductores certificados y discretos que manejan <strong style="color:rgba(255,255,255,0.85);font-weight:500;">tu vehículo</strong> hasta tu destino. Para quienes no negocian su seguridad.
             </p>
