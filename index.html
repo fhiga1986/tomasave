@@ -235,6 +235,17 @@
       box-shadow: 0 12px 36px rgba(45,198,83,0.4);
     }
     .nav-cta svg { width: 16px; height: 16px; }
+    @media (max-width: 600px) {
+      .nav-cta {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 10px 16px;
+        gap: 6px;
+      }
+      .nav-cta span { display: block; }
+    }
 
     /* ─── HERO ─── */
     .hero {
@@ -1741,6 +1752,15 @@
       padding-top: 20px;
       border-top: 1px solid rgba(255,255,255,0.08);
     }
+    @media (max-width: 600px) {
+      .footer-social {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .footer-social .social-btn--pending {
+        grid-column: 2 / 3;
+      }
+    }
     .social-btn {
       display: inline-flex;
       align-items: center;
@@ -1757,6 +1777,8 @@
     }
     .social-btn:hover { background: rgba(45,198,83,0.15); color: #2DC653; border-color: rgba(45,198,83,0.3); }
     .social-btn--pending { opacity: 0.4; cursor: default; pointer-events: none; }
+    .social-row { display: flex; flex-wrap: wrap; gap: 10px; }
+    .social-row--center { justify-content: center; margin-top: 0; }
     /* Client logo img */
     .client-logo-img { display:flex; align-items:center; justify-content:center; height:64px; margin-bottom:8px; }
   </style>
@@ -2407,22 +2429,26 @@
         <p>Chofer de Reemplazo Lima · Conductor designado Lima · Chofer privado Lima · Chofer para eventos Lima · Valet parking Lima · Chofer corporativo Lima · Servicio de Chofer de Reemplazo Lima Metropolitana · Chofer de Reemplazo 24 horas · Chofer por horas Lima · Agencia de choferes Lima · Movilidad corporativa Lima · Tercerización de choferes Perú</p>
       </div>
       <div class="footer-social">
-        <a href="https://www.facebook.com/savechoferesdereemplazo" target="_blank" rel="noopener noreferrer" aria-label="Facebook SAVE" class="social-btn">
-          <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
-          Facebook
-        </a>
-        <a href="https://www.instagram.com/savechoferesdereemplazo" target="_blank" rel="noopener noreferrer" aria-label="Instagram SAVE" class="social-btn">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-          Instagram
-        </a>
-        <a href="https://www.tiktok.com/@sitomastomasave" target="_blank" rel="noopener noreferrer" aria-label="TikTok SAVE" class="social-btn">
-          <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.16 8.16 0 004.77 1.52V6.76a4.85 4.85 0 01-1-.07z"/></svg>
-          TikTok
-        </a>
-        <a href="#" class="social-btn social-btn--pending" aria-label="LinkedIn SAVE — Próximamente">
-          <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
-          LinkedIn
-        </a>
+        <div class="social-row">
+          <a href="https://www.facebook.com/savechoferesdereemplazo" target="_blank" rel="noopener noreferrer" aria-label="Facebook SAVE" class="social-btn">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+            Facebook
+          </a>
+          <a href="https://www.instagram.com/savechoferesdereemplazo" target="_blank" rel="noopener noreferrer" aria-label="Instagram SAVE" class="social-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            Instagram
+          </a>
+          <a href="https://www.tiktok.com/@sitomastomasave" target="_blank" rel="noopener noreferrer" aria-label="TikTok SAVE" class="social-btn">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.16 8.16 0 004.77 1.52V6.76a4.85 4.85 0 01-1-.07z"/></svg>
+            TikTok
+          </a>
+        </div>
+        <div class="social-row social-row--center">
+          <a href="#" class="social-btn social-btn--pending" aria-label="LinkedIn SAVE — Próximamente">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+            LinkedIn
+          </a>
+        </div>
       </div>
       <div class="footer-bottom">
         <p class="footer-copy">© <span id="footer-year"></span> SAVE — HG Next Gen Solutions. Todos los derechos reservados. Lima, Perú .</p>
