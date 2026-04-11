@@ -1792,7 +1792,7 @@
       letter-spacing: 0.02em;
       line-height: 1.6;
       margin-bottom: 10px;
-      animation: fadeSlideUp 0.8s ease both;
+      animation: slideFromLeft 0.7s cubic-bezier(0.22,1,0.36,1) both;
     }
     .hero-slogan-main {
       font-family: 'Outfit', sans-serif;
@@ -1803,38 +1803,48 @@
       color: #2DC653;
       text-shadow: 0 0 60px rgba(45,198,83,0.35);
       margin: 0 0 24px 0;
-      animation: fadeSlideUp 0.9s ease 0.15s both;
+      animation: slideFromLeft 0.8s cubic-bezier(0.22,1,0.36,1) 0.1s both;
       position: relative;
     }
     .slogan-line1 {
       font-size: 1em;
       color: #2DC653;
+      display: block;
+      animation: slideFromLeft 0.75s cubic-bezier(0.22,1,0.36,1) 0.1s both;
+      overflow: hidden;
     }
     .slogan-line2 {
       font-size: 1.35em;
       color: #FFFFFF;
-      display: inline-block;
+      display: block;
+      animation: slideFromLeftFast 0.8s cubic-bezier(0.22,1,0.36,1) 0.3s both;
+      overflow: hidden;
     }
     .hero-slogan-main::after {
       content: '';
       display: block;
-      width: 60px;
+      width: 100%;
+      max-width: 320px;
       height: 3px;
-      background: #2DC653;
+      background: linear-gradient(90deg, #2DC653, transparent);
       margin-top: 14px;
       border-radius: 2px;
-      animation: expandLine 0.6s ease 0.8s both;
+      animation: expandLine 0.8s cubic-bezier(0.22,1,0.36,1) 0.7s both;
     }
-    @keyframes fadeSlideUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to   { opacity: 1; transform: translateY(0); }
+    @keyframes slideFromLeft {
+      from { opacity: 0; transform: translateX(-60px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes slideFromLeftFast {
+      from { opacity: 0; transform: translateX(-80px); }
+      to   { opacity: 1; transform: translateX(0); }
     }
     @keyframes expandLine {
-      from { width: 0; }
-      to   { width: 60px; }
+      from { width: 0; opacity: 0; }
+      to   { width: 100%; opacity: 1; }
     }
     @media (prefers-reduced-motion: reduce) {
-      .hero-pretext, .hero-slogan-main, .hero-slogan-main::after { animation: none; }
+      .hero-pretext, .slogan-line1, .slogan-line2, .hero-slogan-main::after { animation: none; }
     }
   </style>
 </head>
