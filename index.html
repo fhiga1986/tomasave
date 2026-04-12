@@ -1767,10 +1767,15 @@
     @media (max-width: 600px) {
       .footer-social {
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto auto;
+      }
+      .footer-social .social-btn {
+        width: 100%;
       }
       .footer-social .social-btn--pending {
         grid-column: auto;
+        opacity: 0.4;
       }
     }
     .social-btn {
