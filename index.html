@@ -1766,16 +1766,12 @@
     }
     @media (max-width: 600px) {
       .footer-social {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: auto auto;
+        display: flex;
+        flex-direction: column;
       }
       .footer-social .social-btn {
         width: 100%;
-      }
-      .footer-social .social-btn--pending {
-        grid-column: auto;
-        opacity: 0.4;
+        justify-content: center;
       }
     }
     .social-btn {
