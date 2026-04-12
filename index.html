@@ -474,22 +474,34 @@
     }
     .scroll-hint {
       position: absolute;
-      bottom: 28px; left: 50%;
-      transform: translateX(-50%);
+      bottom: 28px; right: 40px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 6px;
-      color: rgba(255,255,255,0.25);
-      font-size: 0.65rem;
+      gap: 4px;
+      color: rgba(255,255,255,0.3);
+      font-size: 0.6rem;
       letter-spacing: 0.14em;
       text-transform: uppercase;
       animation: fadeIn 1s 1.2s both;
     }
-    .scroll-line {
-      width: 1px; height: 44px;
-      background: linear-gradient(to bottom, rgba(255,255,255,0.3), transparent);
-      animation: scrollPulse 2.2s 1.2s infinite;
+    .scroll-line { display: none; }
+    .scroll-hint::after {
+      content: '';
+      display: block;
+      width: 10px;
+      height: 10px;
+      border-right: 1.5px solid rgba(255,255,255,0.35);
+      border-bottom: 1.5px solid rgba(255,255,255,0.35);
+      transform: rotate(45deg);
+      animation: arrowBounce 1.4s 1.2s ease-in-out infinite;
+    }
+    @keyframes arrowBounce {
+      0%, 100% { transform: rotate(45deg) translateY(0); opacity: 0.3; }
+      50%       { transform: rotate(45deg) translateY(5px); opacity: 0.8; }
+    }
+    @media (max-width: 768px) {
+      .scroll-hint { display: none; }
     }
 
     /* ─── TRUST BAR ─── */
