@@ -1911,6 +1911,15 @@
     @media (prefers-reduced-motion: reduce) {
       .hero-pretext, .slogan-line1, .slogan-line2, .hero-slogan-main::after { animation: none; }
     }
+  
+    /* Slogan wave effect */
+    .hero-slogan-wave { display: inline-flex; gap: 0; overflow: visible; }
+    .hero-slogan-wave .char { display: inline-block; animation: waveChar 1.8s ease-in-out infinite; color: #FFFFFF; }
+    .hero-slogan-wave .char.space { width: 0.3em; }
+    @keyframes waveChar {
+      0%, 100% { transform: translateY(0); color: #FFFFFF; }
+      50% { transform: translateY(-6px); color: #2DC653; }
+    }
   </style>
 
   <script type="application/ld+json">
