@@ -2713,33 +2713,64 @@
       sections.forEach(s => observer.observe(s));
     })();
 
-    // ── Story banner: preload next slide image ────
-    (function() {
-      const storyImgs = ['Party.webp','Accident.webp','Saveyou.webp','Sleep.webp'];
-      // First slide already visible — preload slide 2 immediately
-      const preload = (src) => { const i = new Image(); i.src = src; };
-      preload(storyImgs[0]);
-      setTimeout(() => preload(storyImgs[1]), 1000);
-      setTimeout(() => preload(storyImgs[2]), 3000);
-      setTimeout(() => preload(storyImgs[3]), 5000);
-    })();
-    // ─────────────────────────────────────────────
+    // ── Story banner: arrancar solo cuando el usuario llega al banner ────
     (function() {
       const DURATION = 5000; // ms per slide
       const slides   = document.querySelectorAll('.story-slide');
       const bars     = document.querySelectorAll('.story-prog-bar');
       const dots     = document.querySelectorAll('.story-dot');
-      if (!slides.length) return;
+      const banner   = document.querySelector('.story-banner');
+      if (!slides.length || !banner) return;
 
-      let current = 0;
-      let timer   = null;
-      let fillTimer = null;
+      let current    = 0;
+      let timer      = null;
+      let started    = false;   // ¿el slider ya arrancó alguna vez?
+      let paused     = false;   // pausado por visibilidad u hover
+      let fillStart  = null;    // timestamp cuando inició el fill actual
+      let fillElapsed = 0;      // ms ya consumidos del fill actual al pausar
 
-      function goTo(idx, fromAuto) {
-        // Clamp
+      // Preload imágenes solo cuando el banner está próximo a aparecer
+      const storyImgs = ['Party.webp','Accident.webp','Saveyou.webp','Sleep.webp'];
+      const preload = (src) => { const i = new Image(); i.src = src; };
+
+      function startFill(remaining) {
+        const fill = bars[current].querySelector('.story-prog-fill');
+        fillStart = performance.now();
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+            fill.style.transition = `width ${remaining}ms linear`;
+            fill.style.width = '100%';
+          });
+        });
+        clearTimeout(timer);
+        timer = setTimeout(() => goTo(current + 1, true), remaining);
+      }
+
+      function pauseFill() {
+        if (paused) return;
+        paused = true;
+        clearTimeout(timer);
+        const fill = bars[current].querySelector('.story-prog-fill');
+        const computed = getComputedStyle(fill).width;
+        fill.style.transition = 'none';
+        fill.style.width = computed;
+        // Calcular cuánto tiempo ya pasó
+        if (fillStart !== null) {
+          fillElapsed += performance.now() - fillStart;
+          fillStart = null;
+        }
+      }
+
+      function resumeFill() {
+        if (!paused || !started) return;
+        paused = false;
+        const remaining = Math.max(0, DURATION - fillElapsed);
+        startFill(remaining);
+      }
+
+      function goTo(idx) {
         idx = (idx + slides.length) % slides.length;
 
-        // Reset all
         slides.forEach(s => s.classList.remove('active'));
         bars.forEach((b, i) => {
           b.classList.remove('active', 'done');
@@ -2751,21 +2782,14 @@
 
         slides[idx].classList.add('active');
         dots[idx].classList.add('active');
-
-        // Animate active bar
-        const fill = bars[idx].querySelector('.story-prog-fill');
         bars[idx].classList.add('active');
-        // Force reflow then animate
-        requestAnimationFrame(() => {
-          requestAnimationFrame(() => {
-            fill.style.transition = `width ${DURATION}ms linear`;
-            fill.style.width = '100%';
-          });
-        });
 
         current = idx;
-        clearTimeout(timer);
-        timer = setTimeout(() => goTo(current + 1, true), DURATION);
+        fillElapsed = 0;
+        fillStart = null;
+        paused = false;
+
+        if (!paused) startFill(DURATION);
       }
 
       // Nav buttons
@@ -2786,27 +2810,32 @@
         if (Math.abs(dx) > 40) goTo(current + (dx < 0 ? 1 : -1));
       }, {passive:true});
 
-      // Pause on hover
-      track.addEventListener('mouseenter', () => {
-        clearTimeout(timer);
-        const fill = bars[current].querySelector('.story-prog-fill');
-        const computed = getComputedStyle(fill).width;
-        fill.style.transition = 'none';
-        fill.style.width = computed;
-      });
-      track.addEventListener('mouseleave', () => {
-        const fill = bars[current].querySelector('.story-prog-fill');
-        const pct = parseFloat(fill.style.width) / track.offsetWidth * 100 || 0;
-        const remaining = DURATION * (1 - parseFloat(fill.style.width) / fill.parentElement.offsetWidth);
-        requestAnimationFrame(() => {
-          fill.style.transition = `width ${remaining}ms linear`;
-          fill.style.width = '100%';
-        });
-        clearTimeout(timer);
-        timer = setTimeout(() => goTo(current + 1), remaining);
-      });
+      // Pause on hover (desktop)
+      track.addEventListener('mouseenter', () => pauseFill());
+      track.addEventListener('mouseleave', () => resumeFill());
 
-      goTo(0);
+      // ── IntersectionObserver: arrancar al entrar, pausar al salir ──
+      const visObs = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            if (!started) {
+              // Primera vez que el usuario llega al banner
+              started = true;
+              preload(storyImgs[0]);
+              setTimeout(() => preload(storyImgs[1]), 800);
+              setTimeout(() => preload(storyImgs[2]), 2500);
+              setTimeout(() => preload(storyImgs[3]), 4500);
+              goTo(0);
+            } else {
+              resumeFill();
+            }
+          } else {
+            if (started) pauseFill();
+          }
+        });
+      }, { threshold: 0.3 }); // al menos 30% visible
+
+      visObs.observe(banner);
     })();
     // ─────────────────────────────────────────────
   </script>
