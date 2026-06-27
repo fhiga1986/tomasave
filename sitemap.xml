@@ -7,7 +7,7 @@
   <!-- Página principal — única URL real del sitio -->
   <url>
     <loc>https://tomasave.com/</loc>
-    <lastmod>2026-04-27</lastmod>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
