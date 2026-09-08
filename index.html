@@ -1995,6 +1995,86 @@
       0%, 100% { transform: translateY(0); color: #9CA3AF; }
       50% { transform: translateY(-6px); color: #FFFFFF; }
     }
+
+    /* ── SAVE CORPORATIVO ── */
+    .corporate {
+      padding: var(--section-py) 0;
+      background: var(--white);
+      position: relative;
+    }
+    .corporate-header { text-align: center; margin-bottom: 52px; }
+    .corporate-header .section-desc { margin: 0 auto; }
+    .corporate-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      margin-bottom: 48px;
+    }
+    .corporate-card {
+      background: var(--off-white);
+      border: 1px solid var(--gray-mid);
+      border-radius: var(--radius-lg);
+      padding: 32px 26px;
+      transition: var(--transition);
+    }
+    .corporate-card:hover {
+      border-color: rgba(45,198,83,0.45);
+      box-shadow: var(--shadow-card);
+      transform: translateY(-4px);
+    }
+    .corporate-icon {
+      width: 46px; height: 46px;
+      border-radius: 12px;
+      background: var(--green-muted);
+      color: var(--green-dark);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 18px;
+    }
+    .corporate-icon svg { width: 22px; height: 22px; }
+    .corporate-card h3 {
+      font-size: 1.02rem;
+      font-weight: 600;
+      color: var(--black);
+      margin-bottom: 8px;
+      line-height: 1.35;
+    }
+    .corporate-card p {
+      font-size: 0.9rem;
+      color: var(--gray-text);
+      line-height: 1.65;
+      font-weight: 300;
+    }
+    .corporate-cta {
+      text-align: center;
+      background: var(--black);
+      border-radius: var(--radius-lg);
+      padding: 44px 32px;
+    }
+    .corporate-cta h3 {
+      font-family: var(--font-display);
+      font-size: clamp(1.5rem, 2.6vw, 2rem);
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 10px;
+      line-height: 1.2;
+    }
+    .corporate-cta h3 em { color: var(--green); font-style: italic; }
+    .corporate-cta p {
+      color: rgba(255,255,255,0.6);
+      font-size: 0.98rem;
+      font-weight: 300;
+      max-width: 520px;
+      margin: 0 auto 26px;
+      line-height: 1.7;
+    }
+    @media (max-width: 1024px) {
+      .corporate-grid { grid-template-columns: repeat(2, 1fr); gap: 18px; }
+    }
+    @media (max-width: 640px) {
+      .corporate-grid { grid-template-columns: 1fr; }
+      .corporate-cta { padding: 34px 22px; }
+    }
+
   </style>
 
 
@@ -2334,6 +2414,7 @@
                 <div class="benefit-text">
                   <h3>Tiempo de espera ILIMITADO</h3>
                   <p>El conductor no se retira del lugar. Se aplican costos accesibles por espera adicional. Tranquilidad total para ti.</p>
+                </div>
               </div>
               <div class="benefit-item reveal reveal-delay-2">
                 <div class="benefit-num">06</div>
@@ -2441,6 +2522,54 @@
     </section>
 
     <!-- FAQ -->
+    <!-- SAVE CORPORATIVO -->
+    <section class="corporate" id="corporativo" aria-labelledby="corporate-heading">
+      <div class="container">
+        <div class="corporate-header reveal">
+          <span class="section-label">SAVE Corporativo</span>
+          <h2 class="section-title" id="corporate-heading">Chofer de Reemplazo para <em>Empresas</em><br/>y Traslados Ejecutivos</h2>
+          <p class="section-desc">Servicio de chofer de reemplazo corporativo, traslados ejecutivos y transporte de pasajeros para empresas en Lima, Callao y provincias. Conductores certificados, facturación empresarial y coordinación centralizada.</p>
+        </div>
+
+        <div class="corporate-grid">
+          <article class="corporate-card reveal reveal-delay-1">
+            <div class="corporate-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+            <h3>Facturación empresarial</h3>
+            <p>Emitimos comprobantes a nombre de la empresa, con detalle de cada servicio para tu área contable.</p>
+          </article>
+
+          <article class="corporate-card reveal reveal-delay-2">
+            <div class="corporate-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+            <h3>Servicios recurrentes y por horas</h3>
+            <p>Programación mensual, chofer por horas o por jornada completa para tus ejecutivos y directivos.</p>
+          </article>
+
+          <article class="corporate-card reveal reveal-delay-3">
+            <div class="corporate-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17h14M6 17V9l2-4h8l2 4v8"/><circle cx="7.5" cy="17.5" r="1.5"/><circle cx="16.5" cy="17.5" r="1.5"/></svg></div>
+            <h3>Cobertura de flota</h3>
+            <p>Atendemos varias unidades y ejecutivos en simultáneo, incluyendo traslado de vehículos a taller o cochera.</p>
+          </article>
+
+          <article class="corporate-card reveal reveal-delay-4">
+            <div class="corporate-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+            <h3>Coordinación centralizada</h3>
+            <p>Un solo canal de contacto para todas las solicitudes de tu empresa, con respuesta inmediata 24/7.</p>
+          </article>
+        </div>
+
+        <div class="corporate-cta reveal">
+          <h3>¿Tu empresa necesita <em>choferes de confianza?</em></h3>
+          <p>Trabajamos con empresas automotrices, de transporte y tecnología. Cuéntanos qué necesitas y armamos una propuesta a la medida.</p>
+          <a href="https://wa.me/51981560156?text=Hola!%20escribo%20en%20nombre%20de%20una%20empresa.%20Necesito%20informaci%C3%B3n%20sobre%20Chofer%20de%20Reemplazo%20y%20Traslados%20Ejecutivos%20corporativos."
+             target="_blank" rel="noopener noreferrer"
+             class="btn-wa" data-event="whatsapp_click" data-origen="corporativo">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/></svg>
+            Solicitar propuesta corporativa
+          </a>
+        </div>
+      </div>
+    </section>
+
     <section class="faq" id="preguntas" aria-labelledby="faq-heading" style="background-color:#0D1F12;">
       <div class="container">
         <div class="faq-header reveal">
@@ -2657,6 +2786,7 @@
             <li><a href="#beneficios">Por qué SAVE</a></li>
             <li><a href="#como-funciona">Cómo funciona</a></li>
             <li><a href="#clientes">Clientes</a></li>
+            <li><a href="#corporativo">SAVE Corporativo</a></li>
             <li><a href="#testimonios">Testimonios</a></li>
             <li><a href="#preguntas">Preguntas frecuentes</a></li>
             <li><a href="#contacto">Contacto</a></li>
@@ -2714,8 +2844,9 @@
     // WhatsApp tracking
     document.querySelectorAll('[data-event="whatsapp_click"]').forEach(b => {
       b.addEventListener('click', () => {
-        if(typeof gtag!=='undefined') gtag('event','whatsapp_click',{event_category:'conversion'});
-        if(typeof fbq!=='undefined') { fbq('track','Contact'); fbq('track','Lead'); }
+        const origen = b.getAttribute('data-origen') || 'general';
+        if(typeof gtag!=='undefined') gtag('event','whatsapp_click',{event_category:'conversion', origen: origen});
+        if(typeof fbq!=='undefined') { fbq('track','Contact',{origen:origen}); fbq('track','Lead',{origen:origen}); }
       });
     });
 
