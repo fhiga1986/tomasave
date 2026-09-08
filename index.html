@@ -36,13 +36,16 @@
     n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
     t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
     document,'script','https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', 'TU_PIXEL_ID_AQUI');
-    fbq('track', 'PageView');
+    // Al obtener el Pixel ID real, reemplazar la línea de abajo por: var SAVE_PIXEL_ID = '1234567890';
+    var SAVE_PIXEL_ID = '';
+    if (SAVE_PIXEL_ID) { fbq('init', SAVE_PIXEL_ID); fbq('track', 'PageView'); }
   </script>
+  <!-- Al tener el Pixel ID, descomentar y reemplazar TU_PIXEL_ID:
   <noscript>
     <img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=TU_PIXEL_ID_AQUI&ev=PageView&noscript=1" alt=""/>
+    src="https://www.facebook.com/tr?id=TU_PIXEL_ID&ev=PageView&noscript=1" alt=""/>
   </noscript>
+  -->
   <!-- Fin Meta Pixel -->
 
   <!-- Google Analytics 4 (GA4) -->
@@ -70,6 +73,8 @@
   {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
+    "image": ["https://tomasave.com/og-image.jpg","https://tomasave.com/logo-save-hero.webp"],
+    "logo": "https://tomasave.com/logo-save-hero.webp",
     "name": "SAVE — Chofer de Reemplazo Lima",
     "description": "Servicio de Chofer de Reemplazo premium en Lima Metropolitana. Conductores certificados, discretos y disponibles 24/7.",
     "url": "https://tomasave.com",
