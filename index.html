@@ -56,20 +56,29 @@
   <!-- End Google Analytics 4 -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://tomasave.com/" />
-  <meta property="og:title" content="Chofer de Reemplazo en Lima 24/7 | Seguridad y Confianza Total — SAVE" />
-  <meta property="og:description" content="Choferes certificados, discretos y puntuales en Lima Metropolitana. Para ejecutivos y empresarios que no negocian su seguridad." />
+  <meta property="og:title" content="Chofer de Reemplazo en Lima 24/7 — SAVE | Traslados Ejecutivos" />
+  <meta property="og:description" content="Un conductor certificado maneja tu propio auto y te lleva seguro. 24/7 en Lima, Callao y provincias. Empresas y particulares. Cotiza por WhatsApp." />
   <meta property="og:image" content="https://tomasave.com/og-image.jpg" />
   <meta property="og:locale" content="es_PE" />
   <meta property="og:site_name" content="SAVE" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Chofer de Reemplazo en Lima 24/7 | Seguridad y Confianza Total — SAVE" />
-  <meta name="twitter:description" content="Choferes certificados, discretos y puntuales en Lima. Solicita en WhatsApp ahora mismo." />
+  <meta name="twitter:title" content="Chofer de Reemplazo en Lima 24/7 — SAVE | Traslados Ejecutivos" />
+  <meta name="twitter:description" content="Un conductor certificado maneja tu propio auto y te lleva seguro. 24/7 en Lima, Callao y provincias. Empresas y particulares. Cotiza por WhatsApp." />
   <meta name="twitter:image" content="https://tomasave.com/og-image.jpg" />
 
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
+    "@id": "https://tomasave.com/#business",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "customer service",
+      "telephone": "+51981560156",
+      "availableLanguage": ["es"],
+      "areaServed": "PE",
+      "contactOption": "TollFree"
+    },
     "image": ["https://tomasave.com/og-image.jpg","https://tomasave.com/logo-save-hero.webp"],
     "logo": "https://tomasave.com/logo-save-hero.webp",
     "name": "SAVE — Chofer de Reemplazo Lima",
@@ -77,6 +86,8 @@
     "url": "https://tomasave.com",
     "telephone": "+51981560156",
     "priceRange": "$$$$",
+    "paymentAccepted": "Yape, Plin, Transferencia bancaria BCP",
+    "currenciesAccepted": "PEN",
     "foundingDate": "2019",
     "address": {
       "@type": "PostalAddress",
@@ -170,6 +181,7 @@
       {"@type":"Question","name":"¿Con cuánto tiempo de anticipación puedo solicitar el servicio de Chofer de Reemplazo?","acceptedAnswer":{"@type":"Answer","text":"Hasta con 2 horas de anticipación. El conductor llegará al punto de encuentro que solicites, puntual y listo para llevarte a tu destino."}},
       {"@type":"Question","name":"¿Atienden emergencias las 24 horas del día?","acceptedAnswer":{"@type":"Answer","text":"Sí. SAVE opera las 24 horas los 7 días de la semana, incluyendo feriados. Atención y respuesta inmediata vía WhatsApp."}},
       {"@type":"Question","name":"¿Qué distritos de Lima cubren con su servicio?","acceptedAnswer":{"@type":"Answer","text":"Operamos sin límite de cobertura en Lima, Callao y provincias: Miraflores, San Isidro, Surco, La Molina, San Borja, Barranco, Chorrillos, Lince, Jesús María, San Miguel y más. También playas del sur y norte."}},
+      {"@type":"Question","name":"¿Qué métodos de pago aceptan y emiten factura?","acceptedAnswer":{"@type":"Answer","text":"Aceptamos Yape, Plin y transferencia bancaria BCP. Emitimos boleta y factura electrónica por cada servicio, tanto para particulares como para empresas."}},
       {"@type":"Question","name":"¿Atienden empresas, flotas y traslados corporativos?","acceptedAnswer":{"@type":"Answer","text":"Sí. Trabajamos con empresas que necesitan choferes de reemplazo para sus ejecutivos, traslados corporativos programados y cobertura de flota. Facturamos a nombre de la empresa y coordinamos servicios recurrentes."}},
       {"@type":"Question","name":"¿Hacen traslados ejecutivos para empresas?","acceptedAnswer":{"@type":"Answer","text":"Sí. Trasladamos a ejecutivos y a sus acompañantes dentro de Lima, Callao y provincias, siempre conduciendo el vehículo de la empresa o del propio ejecutivo. No alquilamos autos: ponemos al conductor certificado."}},
       {"@type":"Question","name":"¿Puedo contratar un chofer de reemplazo por horas?","acceptedAnswer":{"@type":"Answer","text":"Sí. Puedes contratar el servicio por horas, por trayecto o por jornada completa, según lo que necesites. Escríbenos por WhatsApp y armamos la modalidad que mejor te acomode."}},
@@ -184,6 +196,8 @@
   {
     "@context": "https://schema.org",
     "@type": "TaxiService",
+    "@id": "https://tomasave.com/#service",
+    "provider": { "@id": "https://tomasave.com/#business" },
     "name": "SAVE — Chofer de Reemplazo Lima",
     "description": "Servicio de Chofer de Reemplazo experto en Lima, Callao y provincias. Conductores certificados con Licencia AI, AII, AIII disponibles 24/7 sin límite de cobertura.",
     "url": "https://tomasave.com",
@@ -198,9 +212,16 @@
       "addressCountry": "PE"
     },
     "areaServed": [
-      {"@type": "City", "name": "Lima"},
-      {"@type": "City", "name": "Callao"},
-      {"@type": "State", "name": "Lima, Perú"}
+      { "@type": "City", "name": "Lima" },
+      { "@type": "City", "name": "Callao" },
+      { "@type": "AdministrativeArea", "name": "Miraflores" },
+      { "@type": "AdministrativeArea", "name": "San Isidro" },
+      { "@type": "AdministrativeArea", "name": "Santiago de Surco" },
+      { "@type": "AdministrativeArea", "name": "La Molina" },
+      { "@type": "AdministrativeArea", "name": "San Borja" },
+      { "@type": "AdministrativeArea", "name": "Barranco" },
+      { "@type": "AdministrativeArea", "name": "San Miguel" },
+      { "@type": "AdministrativeArea", "name": "Provincias del Perú" }
     ],
     "availableChannel": {
       "@type": "ServiceChannel",
@@ -2596,6 +2617,10 @@
             <h3>¿Qué distritos de Lima cubren con su servicio?</h3>
             <p>Operamos sin límite de cobertura en Lima, Callao y provincias: Miraflores, San Isidro, Surco, La Molina, San Borja, Barranco, Chorrillos, Lince, Jesús María, San Miguel y más. También playas del sur y norte.</p>
           </article>
+          <article class="faq-item reveal reveal-delay-2">
+            <h3>¿Qué métodos de pago aceptan y emiten factura?</h3>
+            <p>Aceptamos Yape, Plin y transferencia bancaria BCP. Emitimos boleta y factura electrónica por cada servicio, tanto para particulares como para empresas.</p>
+          </article>
           <article class="faq-item reveal reveal-delay-1">
             <h3>¿Atienden empresas, flotas y traslados corporativos?</h3>
             <p>Sí. Trabajamos con empresas que necesitan choferes de reemplazo para sus ejecutivos, traslados corporativos programados y cobertura de flota. Facturamos a nombre de la empresa y coordinamos servicios recurrentes.</p>
@@ -2763,6 +2788,18 @@
             <div class="footer-contact-item">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.657 16.657L13.414 20.9a2 2 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
               Lima, Callao y provincias
+            </div>
+            <div class="footer-contact-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 9h1m4 0h1M9 13h1m4 0h1M9 17h1m4 0h1"/></svg>
+              <a href="https://www.google.com/maps/place/SAVE+-+Chofer+de+Reemplazo+Lima/@-12.0689567,-77.0993315,17z" target="_blank" rel="noopener">Av. Precursores 880, San Miguel, Lima</a>
+            </div>
+            <div class="footer-contact-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+              Aceptamos Yape, Plin y transferencia BCP
+            </div>
+            <div class="footer-contact-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
+              Emitimos boleta y factura electrónica
             </div>
             <div class="footer-contact-item">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>
