@@ -200,53 +200,79 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "TaxiService",
+    "@type": "Service",
     "@id": "https://tomasave.com/#service",
-    "provider": { "@id": "https://tomasave.com/#business" },
     "name": "SAVE — Chofer de Reemplazo Lima",
-    "description": "Servicio de Chofer de Reemplazo experto en Lima, Callao y provincias. Conductores certificados con Licencia AI, AII, AIII disponibles 24/7 sin límite de cobertura.",
-    "url": "https://tomasave.com",
-    "telephone": "+51981560156",
-    "priceRange": "$$$$",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Av. Precursores 880",
-      "addressLocality": "San Miguel",
-      "addressRegion": "Lima",
-      "postalCode": "15087",
-      "addressCountry": "PE"
+    "serviceType": "Chofer de Reemplazo",
+    "description": "Servicio de Chofer de Reemplazo experto en Lima, Callao y provincias. Conductores certificados con Licencia AI, AII, AIII que manejan tu propio vehículo, disponibles 24/7 sin límite de cobertura. No somos taxi ni alquiler de autos.",
+    "provider": {
+      "@id": "https://tomasave.com/#business"
     },
+    "url": "https://tomasave.com",
     "areaServed": [
-      { "@type": "City", "name": "Lima" },
-      { "@type": "City", "name": "Callao" },
-      { "@type": "AdministrativeArea", "name": "Miraflores" },
-      { "@type": "AdministrativeArea", "name": "San Isidro" },
-      { "@type": "AdministrativeArea", "name": "Santiago de Surco" },
-      { "@type": "AdministrativeArea", "name": "La Molina" },
-      { "@type": "AdministrativeArea", "name": "San Borja" },
-      { "@type": "AdministrativeArea", "name": "Barranco" },
-      { "@type": "AdministrativeArea", "name": "San Miguel" },
-      { "@type": "AdministrativeArea", "name": "Provincias del Perú" }
+      {
+        "@type": "City",
+        "name": "Lima"
+      },
+      {
+        "@type": "City",
+        "name": "Callao"
+      },
+      {
+        "@type": "AdministrativeArea",
+        "name": "Miraflores"
+      },
+      {
+        "@type": "AdministrativeArea",
+        "name": "San Isidro"
+      },
+      {
+        "@type": "AdministrativeArea",
+        "name": "Santiago de Surco"
+      },
+      {
+        "@type": "AdministrativeArea",
+        "name": "La Molina"
+      },
+      {
+        "@type": "AdministrativeArea",
+        "name": "San Borja"
+      },
+      {
+        "@type": "AdministrativeArea",
+        "name": "Barranco"
+      },
+      {
+        "@type": "AdministrativeArea",
+        "name": "San Miguel"
+      },
+      {
+        "@type": "AdministrativeArea",
+        "name": "Provincias del Perú"
+      }
     ],
     "availableChannel": {
       "@type": "ServiceChannel",
       "serviceUrl": "https://wa.me/51981560156",
       "serviceType": "WhatsApp"
     },
-    "openingHoursSpecification": [{
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
-      "opens": "00:00",
-      "closes": "23:59"
-    }],
-    "provider": {
-      "@type": "Organization",
-      "name": "SAVE — Chofer de Reemplazo Lima",
-      "url": "https://tomasave.com"
-    },
-    "serviceType": "Chofer de Reemplazo",
-    "slogan": "Si tomas, toma SAVE.",
-    "foundingDate": "2019"
+    "hoursAvailable": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+          "Sunday"
+        ],
+        "opens": "00:00",
+        "closes": "23:59"
+      }
+    ],
+    "slogan": "Si tomas, toma SAVE."
   }
   </script>
 
