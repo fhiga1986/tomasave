@@ -2223,7 +2223,9 @@
     .driver-body h3 { font-family: var(--font-display); font-size: 1.55rem; font-weight: 700; line-height: 1.15; color: var(--black); margin-bottom: 4px; }
     .driver-type { font-size: .78rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--green-dark); margin-bottom: 12px; }
     .driver-body p { font-size: .94rem; font-weight: 300; color: var(--gray-text); line-height: 1.7; margin-bottom: 20px; }
-    .driver-body .service-link { margin-top: auto; align-self: flex-start; }
+    .driver-links { margin-top: auto; display: flex; flex-wrap: wrap; align-items: center; gap: 10px 20px; }
+    .driver-more { font-size: .85rem; font-weight: 600; color: var(--gray-dark); border-bottom: 1px solid var(--gray-mid); padding-bottom: 1px; transition: color .2s, border-color .2s; }
+    .driver-more:hover, .driver-more:focus-visible { color: var(--green-dark); border-color: var(--green); }
     @media (max-width: 1024px) {
       .drivers-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .drivers-grid .driver-card:last-child { grid-column: 1 / -1; flex-direction: row; }
@@ -2288,7 +2290,7 @@
             "@type": "City",
             "name": "Lima"
           },
-          "url": "https://tomasave.com/#tipos-de-chofer"
+          "url": "https://tomasave.com/chofer-de-reemplazo-buses.html"
         }
       },
       {
@@ -2306,7 +2308,7 @@
             "@type": "City",
             "name": "Lima"
           },
-          "url": "https://tomasave.com/#tipos-de-chofer"
+          "url": "https://tomasave.com/chofer-de-reemplazo-camiones.html"
         }
       }
     ]
@@ -2630,11 +2632,13 @@
               <h3>Conductor A1</h3>
               <p class="driver-type">Vehículos particulares</p>
               <p>Para tu auto, SUV o camioneta de uso particular. Un conductor certificado maneja tu vehículo hasta tu destino, con el cuidado de siempre.</p>
+              <div class="driver-links">
               <a href="https://wa.me/51981560156?text=%C2%A1Hola!%20Quiero%20un%20ch%C3%B3fer%20de%20reemplazo%20SAVE%20%28Conductor%20A1%29%20para%20mi%20veh%C3%ADculo%20particular."
                  target="_blank" rel="noopener" class="service-link" data-event="whatsapp_click" data-origen="conductor_a1">
                 Solicitar Conductor A1
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
               </a>
+              </div>
             </div>
           </article>
 
@@ -2647,11 +2651,14 @@
               <h3>Conductor A2B</h3>
               <p class="driver-type">Vehículos con mercadería o buses</p>
               <p>Para minivans, buses y vehículos que transportan mercadería. Movilizamos tu unidad con un conductor de la categoría que requiere, en Lima o hacia provincias.</p>
+              <div class="driver-links">
               <a href="https://wa.me/51981560156?text=%C2%A1Hola!%20Quiero%20cotizar%20un%20ch%C3%B3fer%20de%20reemplazo%20SAVE%20%28Conductor%20A2B%29%20para%20un%20bus%20o%20veh%C3%ADculo%20con%20mercader%C3%ADa."
                  target="_blank" rel="noopener" class="service-link" data-event="whatsapp_click" data-origen="conductor_a2b">
                 Cotizar Conductor A2B
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
               </a>
+              <a href="/chofer-de-reemplazo-buses.html" class="driver-more">Ver conductores para buses</a>
+              </div>
             </div>
           </article>
 
@@ -2664,11 +2671,14 @@
               <h3>Conductor A3C</h3>
               <p class="driver-type">Unidades de transporte pesado</p>
               <p>Para camiones y unidades de carga pesada. Un conductor especializado moviliza tu unidad dentro de Lima o hacia provincias.</p>
+              <div class="driver-links">
               <a href="https://wa.me/51981560156?text=%C2%A1Hola!%20Quiero%20cotizar%20un%20ch%C3%B3fer%20de%20reemplazo%20SAVE%20%28Conductor%20A3C%29%20para%20una%20unidad%20de%20transporte%20pesado."
                  target="_blank" rel="noopener" class="service-link" data-event="whatsapp_click" data-origen="conductor_a3c">
                 Cotizar Conductor A3C
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
               </a>
+              <a href="/chofer-de-reemplazo-camiones.html" class="driver-more">Ver conductores para camiones</a>
+              </div>
             </div>
           </article>
         </div>
@@ -3104,6 +3114,8 @@
             <li><a href="#servicios">Auto al taller</a></li>
             <li><a href="#servicios">Viajes fuera de Lima</a></li>
             <li><a href="#tipos-de-chofer">Tipos de conductor</a></li>
+            <li><a href="/chofer-de-reemplazo-buses.html">Chofer para buses</a></li>
+            <li><a href="/chofer-de-reemplazo-camiones.html">Chofer para camiones</a></li>
           </ul>
         </div>
         <div class="footer-col">

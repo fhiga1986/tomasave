@@ -2206,7 +2206,9 @@
     .driver-body h3 { font-family: var(--font-display); font-size: 1.55rem; font-weight: 700; line-height: 1.15; color: var(--black); margin-bottom: 4px; }
     .driver-type { font-size: .78rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--green-dark); margin-bottom: 12px; }
     .driver-body p { font-size: .94rem; font-weight: 300; color: var(--gray-text); line-height: 1.7; margin-bottom: 20px; }
-    .driver-body .service-link { margin-top: auto; align-self: flex-start; }
+    .driver-links { margin-top: auto; display: flex; flex-wrap: wrap; align-items: center; gap: 10px 20px; }
+    .driver-more { font-size: .85rem; font-weight: 600; color: var(--gray-dark); border-bottom: 1px solid var(--gray-mid); padding-bottom: 1px; transition: color .2s, border-color .2s; }
+    .driver-more:hover, .driver-more:focus-visible { color: var(--green-dark); border-color: var(--green); }
     @media (max-width: 1024px) {
       .drivers-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .drivers-grid .driver-card:last-child { grid-column: 1 / -1; flex-direction: row; }
@@ -2271,7 +2273,7 @@
             "@type": "City",
             "name": "Lima"
           },
-          "url": "https://tomasave.com/en.html#tipos-de-chofer"
+          "url": "https://tomasave.com/designated-driver-buses.html"
         }
       },
       {
@@ -2289,7 +2291,7 @@
             "@type": "City",
             "name": "Lima"
           },
-          "url": "https://tomasave.com/en.html#tipos-de-chofer"
+          "url": "https://tomasave.com/designated-driver-trucks.html"
         }
       }
     ]
@@ -2601,11 +2603,13 @@
               <h3>Driver A1</h3>
               <p class="driver-type">Private vehicles</p>
               <p>For your car, SUV or pickup for private use. A certified driver drives your own vehicle to your destination, with the usual care.</p>
+              <div class="driver-links">
               <a href="https://wa.me/51981560156?text=Hello!%20I%20would%20like%20a%20SAVE%20designated%20driver%20%28Driver%20A1%29%20for%20my%20private%20vehicle."
                  target="_blank" rel="noopener" class="service-link" data-event="whatsapp_click" data-origen="conductor_a1">
                 Request Driver A1
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
               </a>
+              </div>
             </div>
           </article>
 
@@ -2618,11 +2622,14 @@
               <h3>Driver A2B</h3>
               <p class="driver-type">Vehicles with cargo or buses</p>
               <p>For minivans, buses and vehicles carrying cargo. We move your unit with a driver of the category it requires, in Lima or to the provinces.</p>
+              <div class="driver-links">
               <a href="https://wa.me/51981560156?text=Hello!%20I%20would%20like%20a%20quote%20for%20a%20SAVE%20designated%20driver%20%28Driver%20A2B%29%20for%20a%20bus%20or%20a%20vehicle%20with%20cargo."
                  target="_blank" rel="noopener" class="service-link" data-event="whatsapp_click" data-origen="conductor_a2b">
                 Get a quote: Driver A2B
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
               </a>
+              <a href="/designated-driver-buses.html" class="driver-more">More about bus drivers</a>
+              </div>
             </div>
           </article>
 
@@ -2635,11 +2642,14 @@
               <h3>Driver A3C</h3>
               <p class="driver-type">Heavy transport units</p>
               <p>For trucks and heavy cargo units. A specialized driver moves your unit within Lima or to the provinces.</p>
+              <div class="driver-links">
               <a href="https://wa.me/51981560156?text=Hello!%20I%20would%20like%20a%20quote%20for%20a%20SAVE%20designated%20driver%20%28Driver%20A3C%29%20for%20a%20heavy%20transport%20unit."
                  target="_blank" rel="noopener" class="service-link" data-event="whatsapp_click" data-origen="conductor_a3c">
                 Get a quote: Driver A3C
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
               </a>
+              <a href="/designated-driver-trucks.html" class="driver-more">More about truck drivers</a>
+              </div>
             </div>
           </article>
         </div>
@@ -3059,6 +3069,8 @@
             <li><a href="#servicios">Car to the shop</a></li>
             <li><a href="#servicios">Trips outside Lima</a></li>
             <li><a href="#tipos-de-chofer">Driver types</a></li>
+            <li><a href="/designated-driver-buses.html">Bus drivers</a></li>
+            <li><a href="/designated-driver-trucks.html">Truck drivers</a></li>
           </ul>
         </div>
         <div class="footer-col">
