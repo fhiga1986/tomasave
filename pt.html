@@ -375,19 +375,61 @@
       transition: var(--transition);
     }
     .navbar.scrolled .nav-logo-text { color: var(--black); }
-    /* ── Selector de idioma ── */
+    /* ── Selector de idioma (banderas SVG inline) ── */
     .lang-switch {
-      display: flex; align-items: center; gap: 7px;
-      margin-left: auto; margin-right: 14px;
+      display: flex; align-items: center; gap: 4px;
+      margin-left: auto; margin-right: 10px;
       font-size: 0.72rem; font-weight: 600; letter-spacing: 0.06em;
     }
-    .lang-switch a {
-      color: rgba(255,255,255,0.55); text-decoration: none;
-      padding: 4px 2px; transition: color .2s;
+    .lang-item {
+      display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+      min-width: 32px; min-height: 32px; padding: 4px 5px; border-radius: 8px;
+      color: rgba(255,255,255,0.72); text-decoration: none;
+      transition: background-color .2s, color .2s, transform .2s;
     }
-    .lang-switch a:hover, .lang-switch a[aria-current="true"] { color: var(--green); }
-    .lang-switch span { color: rgba(255,255,255,0.25); }
-    @media (max-width: 420px) { .lang-switch { margin-right: 8px; gap: 5px; } }
+    .lang-item .flag {
+      display: block; flex: none; width: 22px; height: 15px; border-radius: 2px;
+      box-shadow: 0 0 0 1px rgba(255,255,255,0.28), 0 1px 3px rgba(0,0,0,0.35);
+      transition: transform .2s, box-shadow .2s;
+    }
+    a.lang-item:hover, a.lang-item:focus-visible { background: rgba(255,255,255,0.10); color: #fff; }
+    a.lang-item:hover .flag { transform: translateY(-1px); }
+    a.lang-item:focus-visible { outline: 2px solid var(--green); outline-offset: 1px; }
+    .lang-item.is-current { cursor: default; color: #fff; }
+    .lang-item.is-current .flag { box-shadow: 0 0 0 2px var(--green), 0 1px 3px rgba(0,0,0,0.35); }
+    .navbar.scrolled .lang-item { color: var(--gray-dark); }
+    .navbar.scrolled .lang-item .flag { box-shadow: 0 0 0 1px rgba(0,0,0,0.18), 0 1px 3px rgba(0,0,0,0.18); }
+    .navbar.scrolled a.lang-item:hover, .navbar.scrolled a.lang-item:focus-visible { background: rgba(0,0,0,0.06); color: var(--black); }
+    .navbar.scrolled .lang-item.is-current { color: var(--black); }
+    .navbar.scrolled .lang-item.is-current .flag { box-shadow: 0 0 0 2px var(--green), 0 1px 3px rgba(0,0,0,0.18); }
+    /* Pantallas < 720px: solo bandera. El código (ES/EN/PT) sigue en el DOM para lectores de pantalla y rastreadores */
+    @media (max-width: 719px) {
+      .lang-item { position: relative; gap: 0; min-width: 30px; padding: 4px; }
+      .lang-item .lang-code {
+        position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0;
+        overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap; border: 0;
+      }
+    }
+    /* Celular (< 600px): el idioma actual no se repite; quedan las 2 banderas de los otros idiomas */
+    @media (max-width: 599px) {
+      .lang-item.is-current { display: none; }
+      .navbar-inner { gap: 6px; }   /* respiro mínimo entre logo, banderas y botón */
+    }
+    @media (max-width: 380px) {
+      .lang-switch { margin-right: 6px; gap: 2px; }
+      .lang-item { min-width: 28px; padding: 4px 3px; }
+      .lang-item .flag { width: 20px; height: 14px; }
+      .nav-logo-text { font-size: 0.7rem !important; }   /* el lema lleva font-size inline; evita que palabras largas (p. ej. "Especialista") choquen con las banderas */
+    }
+    /* Muy angosto (iPhone SE 1.ª gen., 320px): el lema del logo se oculta visualmente para no chocar con las banderas */
+    @media (max-width: 340px) {
+      .nav-logo img { flex: none; }
+      .nav-logo-text {
+        position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0;
+        overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap; border: 0;
+      }
+    }
+    @media (prefers-reduced-motion: reduce) { .lang-item, .lang-item .flag { transition: none; } }
 
     .nav-cta {
       display: inline-flex;
@@ -2157,10 +2199,10 @@
           <img src="logo-save-nav.webp" alt="SAVE Motorista Particular Lima" width="44" height="44" loading="eager" fetchpriority="high" decoding="async">
           <span class="nav-logo-text" style="font-family:'Outfit',sans-serif;font-size:0.78rem;font-weight:600;letter-spacing:0.01em;line-height:1.25;max-width:160px;">Seu Motorista Particular Especialista</span>
         </a>
-        <div class="lang-switch" aria-label="Idioma">
-          <a href="/" hreflang="es" lang="es" title="Versión en español">ES</a>
-          <span aria-hidden="true">·</span>
-          <a href="/en.html" hreflang="en" lang="en" title="English version">EN</a>
+        <div class="lang-switch" role="group" aria-label="Idioma">
+          <a href="/" class="lang-item" hreflang="es" lang="es" title="Versión en español"><svg class="flag" viewBox="0 0 24 16" width="24" height="16" aria-hidden="true" focusable="false"><rect width="24" height="16" fill="#AA151B"/><rect y="4" width="24" height="8" fill="#F1BF00"/></svg><span class="lang-code">ES</span></a>
+          <a href="/en.html" class="lang-item" hreflang="en" lang="en" title="English version"><svg class="flag" viewBox="0 0 24 16" width="24" height="16" aria-hidden="true" focusable="false"><rect width="24" height="16" fill="#fff"/><path fill="#B22234" d="M0 0h24v1.23H0zM0 2.46h24v1.23H0zM0 4.92h24v1.23H0zM0 7.38h24v1.23H0zM0 9.85h24v1.23H0zM0 12.31h24v1.23H0zM0 14.77h24V16H0z"/><rect width="10.4" height="8.62" fill="#3C3B6E"/><g fill="#fff"><circle cx="1.9" cy="1.30" r=".42"/><circle cx="3.9" cy="1.30" r=".42"/><circle cx="5.9" cy="1.30" r=".42"/><circle cx="7.9" cy="1.30" r=".42"/><circle cx="2.9" cy="2.65" r=".42"/><circle cx="4.9" cy="2.65" r=".42"/><circle cx="6.9" cy="2.65" r=".42"/><circle cx="1.9" cy="4.00" r=".42"/><circle cx="3.9" cy="4.00" r=".42"/><circle cx="5.9" cy="4.00" r=".42"/><circle cx="7.9" cy="4.00" r=".42"/><circle cx="2.9" cy="5.35" r=".42"/><circle cx="4.9" cy="5.35" r=".42"/><circle cx="6.9" cy="5.35" r=".42"/><circle cx="1.9" cy="6.70" r=".42"/><circle cx="3.9" cy="6.70" r=".42"/><circle cx="5.9" cy="6.70" r=".42"/><circle cx="7.9" cy="6.70" r=".42"/></g></svg><span class="lang-code">EN</span></a>
+          <span class="lang-item is-current" lang="pt" aria-current="true" title="Português"><svg class="flag" viewBox="0 0 24 16" width="24" height="16" aria-hidden="true" focusable="false"><rect width="24" height="16" fill="#009C3B"/><path fill="#FFDF00" d="M12 1.9 22 8 12 14.1 2 8z"/><circle cx="12" cy="8" r="3.9" fill="#002776"/><path d="M8.3 8.9Q12 7.5 15.8 6.9" stroke="#fff" stroke-width=".75" fill="none" stroke-linecap="round"/></svg><span class="lang-code">PT</span></span>
         </div>
         <a href="https://wa.me/51981560156?text=Ol%C3%A1!%20Quero%20solicitar%20um%20motorista%20SAVE%20para%20dirigir%20o%20meu%20pr%C3%B3prio%20carro."
            target="_blank" rel="noopener noreferrer"
