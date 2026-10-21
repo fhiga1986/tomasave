@@ -272,12 +272,13 @@
       --green-mid:    #1AAA40;   /* slightly deeper for hover */
       --green-dark:   #0D6B27;   /* dark green for contrast */
       --green-muted:  #E8F7EC;   /* very light tint */
+      --green-text:   #14822F;   /* verde de marca legible como texto sobre fondos claros (AA) */
 
       --white:        #FFFFFF;
       --off-white:    #F9F9F9;
       --gray-light:   #F2F2F2;
       --gray-mid:     #E0E0E0;
-      --gray-text:    #6B7280;
+      --gray-text:    #4B5563;   /* AA sobre blanco, off-white y gray-light */
       --gray-dark:    #3A3A3A;
       --black:        #111111;
 
@@ -327,7 +328,7 @@
       color: var(--black);
       margin-bottom: 16px;
     }
-    .section-title em { font-style: italic; color: var(--green); }
+    .section-title em { font-style: italic; color: var(--green-text); }
     .section-desc {
       font-size: 1.05rem;
       color: var(--gray-text);
@@ -684,7 +685,7 @@
     }
     .hero-stat-label {
       font-size: 0.68rem;
-      color: rgba(255,255,255,0.4);
+      color: rgba(255,255,255,0.62);
       letter-spacing: 0.06em;
       text-transform: uppercase;
     }
@@ -695,7 +696,7 @@
       flex-direction: column;
       align-items: center;
       gap: 4px;
-      color: rgba(255,255,255,0.3);
+      color: rgba(255,255,255,0.55);
       font-size: 0.6rem;
       letter-spacing: 0.14em;
       text-transform: uppercase;
@@ -738,7 +739,7 @@
       gap: 8px;
       font-size: 0.8rem;
       font-weight: 600;
-      color: rgba(255,255,255,0.9);
+      color: rgba(255,255,255,1);
       letter-spacing: 0.06em;
       text-transform: uppercase;
       flex-shrink: 0;
@@ -1179,7 +1180,7 @@
       font-weight: 700;
       letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: var(--green);
+      color: var(--green-dark);
       background: rgba(45,198,83,0.1);
       padding: 3px 10px;
       border-radius: 20px;
@@ -1214,7 +1215,7 @@
       gap: 6px;
       font-size: 0.875rem;
       font-weight: 600;
-      color: var(--green);
+      color: var(--green-text);
       transition: var(--transition);
       margin-top: 14px;
     }
@@ -1315,7 +1316,7 @@
       margin-bottom: 8px;
     }
     .benefits-card > p {
-      color: rgba(255,255,255,0.45);
+      color: rgba(255,255,255,0.65);
       font-size: 0.88rem;
       margin-bottom: 28px;
       font-weight: 300;
@@ -1440,7 +1441,7 @@
       z-index: 0;
     }
     .clients > .container { position: relative; z-index: 1; }
-    .clients .clients-label { color: rgba(255,255,255,0.5); }
+    .clients .clients-label { color: rgba(255,255,255,0.75); }
     .clients .section-title { color: var(--white); }
     .clients .section-title em { color: var(--green); }
     .clients .client-card {
@@ -1454,7 +1455,8 @@
       border-color: rgba(45,198,83,0.4);
     }
     .clients .client-name { color: var(--white); }
-    .clients .client-type { color: rgba(255,255,255,0.45); }
+    .clients .client-type { color: rgba(255,255,255,0.7); }
+    .clients .client-badge { color: #8CF5A6; }
     .clients-header {
       text-align: center;
       margin-bottom: 44px;
@@ -1614,7 +1616,8 @@
     .testimonials > .container { position: relative; z-index: 1; }
     .testimonials-header { text-align: center; margin-bottom: 56px; }
     .testimonials-header .section-title { color: var(--white); }
-    .testimonials-header .section-desc { color: rgba(255,255,255,0.4); margin: 0 auto; }
+    .testimonials-header .section-title em { color: var(--green); }
+    .testimonials-header .section-desc { color: rgba(255,255,255,0.65); margin: 0 auto; }
     .testimonials-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
     .testimonial-card {
       background: rgba(255,255,255,0.04);
@@ -1661,7 +1664,7 @@
     }
     .t-role {
       font-size: 0.75rem;
-      color: rgba(255,255,255,0.35);
+      color: rgba(255,255,255,0.6);
     }
 
     /* ─── CTA ─── */
@@ -1720,7 +1723,7 @@
     }
     .cta-sub {
       font-size: 1.05rem;
-      color: rgba(255,255,255,0.7);
+      color: rgba(255,255,255,1);
       margin-bottom: 44px;
       font-weight: 300;
       max-width: 440px;
@@ -1758,10 +1761,10 @@
       align-items: center;
       gap: 6px;
       font-size: 0.82rem;
-      color: rgba(255,255,255,0.65);
+      color: rgba(255,255,255,1);
       font-weight: 400;
     }
-    .assurance-item svg { width: 14px; height: 14px; color: rgba(255,255,255,0.8); }
+    .assurance-item svg { width: 14px; height: 14px; color: #fff; }
 
     /* ─── FOOTER ─── */
     .footer {
@@ -1796,14 +1799,14 @@
     .footer-tagline {
       font-size: 0.72rem;
       font-style: italic;
-      color: rgba(255,255,255,0.3);
+      color: rgba(255,255,255,0.6);
       letter-spacing: 0.1em;
       margin-top: 1px;
     }
     .footer-about {
       font-size: 0.88rem;
       line-height: 1.7;
-      color: rgba(255,255,255,0.38);
+      color: rgba(255,255,255,0.68);
       max-width: 340px;
       margin-bottom: 18px;
       font-weight: 300;
@@ -1828,13 +1831,13 @@
       font-weight: 700;
       letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: rgba(255,255,255,0.25);
+      color: rgba(255,255,255,0.6);
       margin-bottom: 18px;
     }
     .footer-links li { margin-bottom: 9px; }
     .footer-links a {
       font-size: 0.88rem;
-      color: rgba(255,255,255,0.45);
+      color: rgba(255,255,255,0.6);
       transition: var(--transition);
       font-weight: 300;
     }
@@ -1845,7 +1848,7 @@
     }
     .footer-seo p {
       font-size: 0.74rem;
-      color: rgba(255,255,255,0.15);
+      color: rgba(255,255,255,0.5);
       line-height: 1.9;
     }
     .footer-bottom {
@@ -1857,9 +1860,9 @@
       flex-wrap: wrap;
       gap: 10px;
     }
-    .footer-copy { font-size: 0.78rem; color: rgba(255,255,255,0.2); }
+    .footer-copy { font-size: 0.78rem; color: rgba(255,255,255,0.58); }
     .footer-legal { display: flex; gap: 18px; }
-    .footer-legal a { font-size: 0.78rem; color: rgba(255,255,255,0.2); transition: var(--transition); }
+    .footer-legal a { font-size: 0.78rem; color: rgba(255,255,255,0.58); transition: var(--transition); }
     .footer-legal a:hover { color: var(--green); }
 
     /* ─── WHATSAPP FLOAT ─── */
@@ -2918,7 +2921,7 @@
     <section class="testimonials" id="testimonios" aria-labelledby="testimonials-heading" data-bg="BackgroundMK.webp">
       <div class="container">
         <div class="testimonials-header reveal">
-          <span class="section-label" style="color:rgba(255,255,255,0.35);">Real testimonials from verified clients</span>
+          <span class="section-label" style="color:rgba(255,255,255,0.6);">Real testimonials from verified clients</span>
           <h2 class="section-title" id="testimonials-heading">What clients say<br/>about SAVE — Peru<img src="peru.webp" alt="Peru" width="20" height="14" style="display:inline-block;vertical-align:middle;margin:0 2px;" loading="lazy" decoding="async"> <em>already trusts</em>SAVE</h2>
           <p class="section-desc">Over 5 years serving executives and business owners. Based on real client experiences.</p>
         </div>
