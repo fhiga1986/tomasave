@@ -2168,9 +2168,133 @@
       .corporate-cta { padding: 34px 22px; }
     }
 
+    /* ─── TIPOS DE CONDUCTOR (A1 / A2B / A3C) ─── */
+    .drivers { padding: var(--section-py) 0; background: var(--off-white); }
+    .drivers-header { text-align: center; margin-bottom: 36px; }
+    .drivers-header .section-desc { margin: 0 auto; }
+    .drivers-checks {
+      display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px 28px;
+      max-width: 760px; margin: 0 auto 48px; padding: 0;
+    }
+    .drivers-checks li {
+      display: flex; align-items: center; gap: 12px;
+      font-size: 1rem; font-weight: 500; color: var(--gray-dark); line-height: 1.4;
+    }
+    .drivers-check-ico {
+      flex: none; width: 26px; height: 26px; border-radius: 50%;
+      background: var(--green); color: var(--white);
+      display: inline-flex; align-items: center; justify-content: center;
+    }
+    .drivers-check-ico svg { width: 15px; height: 15px; }
+    .drivers-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; }
+    .driver-card {
+      display: flex; flex-direction: column; background: var(--white);
+      border: 1px solid var(--gray-mid); border-radius: var(--radius-lg);
+      overflow: hidden; transition: var(--transition);
+    }
+    .driver-card:hover { border-color: rgba(45,198,83,0.45); box-shadow: var(--shadow-card); transform: translateY(-4px); }
+    .driver-photo { position: relative; aspect-ratio: 4 / 5; background: var(--gray-light); overflow: hidden; }
+    .driver-photo img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s ease; }
+    .driver-card:hover .driver-photo img { transform: scale(1.04); }
+    .driver-badge {
+      position: absolute; top: 14px; left: 14px;
+      background: var(--green); color: var(--black);
+      font-weight: 700; font-size: .95rem; letter-spacing: .06em;
+      padding: 6px 14px; border-radius: 999px; box-shadow: 0 2px 10px rgba(0,0,0,.25);
+    }
+    .driver-body { display: flex; flex-direction: column; flex: 1; padding: 24px 24px 26px; }
+    .driver-body h3 { font-family: var(--font-display); font-size: 1.55rem; font-weight: 700; line-height: 1.15; color: var(--black); margin-bottom: 4px; }
+    .driver-type { font-size: .78rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--green-dark); margin-bottom: 12px; }
+    .driver-body p { font-size: .94rem; font-weight: 300; color: var(--gray-text); line-height: 1.7; margin-bottom: 20px; }
+    .driver-body .service-link { margin-top: auto; align-self: flex-start; }
+    @media (max-width: 1024px) {
+      .drivers-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .drivers-grid .driver-card:last-child { grid-column: 1 / -1; flex-direction: row; }
+      .drivers-grid .driver-card:last-child .driver-photo { flex: 0 0 42%; aspect-ratio: auto; }
+      .drivers-grid .driver-card:last-child .driver-body { justify-content: center; }
+    }
+    @media (max-width: 640px) {
+      .drivers-header { margin-bottom: 28px; }
+      .drivers-checks { grid-template-columns: 1fr; gap: 12px; margin-bottom: 36px; }
+      .drivers-grid { grid-template-columns: 1fr; gap: 22px; }
+      .drivers-grid .driver-card:last-child { flex-direction: column; }
+      .drivers-grid .driver-card:last-child .driver-photo { flex: none; aspect-ratio: 4 / 5; }
+      .driver-photo { aspect-ratio: 1 / 1; }
+      .drivers-grid .driver-card:last-child .driver-photo { aspect-ratio: 1 / 1; }
+      .driver-body { padding: 22px 20px 24px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .driver-card, .driver-photo img { transition: none; }
+      .driver-card:hover, .driver-card:hover .driver-photo img { transform: none; }
+    }
+
   </style>
 
 
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "@id": "https://tomasave.com/pt.html#tipos-de-chofer-lista",
+    "name": "Tipos de motorista SAVE",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@type": "Service",
+          "@id": "https://tomasave.com/pt.html#service-a1",
+          "name": "Motorista particular — Motorista A1: Veículos particulares",
+          "serviceType": "Motorista para veículos particulares",
+          "provider": {
+            "@id": "https://tomasave.com/#business"
+          },
+          "areaServed": {
+            "@type": "City",
+            "name": "Lima"
+          },
+          "url": "https://tomasave.com/pt.html#tipos-de-chofer"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "item": {
+          "@type": "Service",
+          "@id": "https://tomasave.com/pt.html#service-a2b",
+          "name": "Motorista particular — Motorista A2B: Veículos com mercadoria ou ônibus",
+          "serviceType": "Motorista para veículos com mercadoria ou ônibus",
+          "provider": {
+            "@id": "https://tomasave.com/#business"
+          },
+          "areaServed": {
+            "@type": "City",
+            "name": "Lima"
+          },
+          "url": "https://tomasave.com/pt.html#tipos-de-chofer"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@type": "Service",
+          "@id": "https://tomasave.com/pt.html#service-a3c",
+          "name": "Motorista particular — Motorista A3C: Unidades de transporte pesado",
+          "serviceType": "Motorista para unidades de transporte pesado",
+          "provider": {
+            "@id": "https://tomasave.com/#business"
+          },
+          "areaServed": {
+            "@type": "City",
+            "name": "Lima"
+          },
+          "url": "https://tomasave.com/pt.html#tipos-de-chofer"
+        }
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
 
@@ -2448,6 +2572,76 @@
             </a>
           </article>
 
+        </div>
+      </div>
+    </section>
+
+    <!-- TIPOS DE CONDUCTOR -->
+    <section class="drivers" id="tipos-de-chofer" aria-labelledby="drivers-heading">
+      <div class="container">
+        <div class="drivers-header reveal">
+          <span class="section-label">Tipos de motorista</span>
+          <h2 class="section-title" id="drivers-heading">Um Motorista Particular de acordo com a sua <em>necessidade e tipo de veículo</em></h2>
+          <p class="section-desc">Temos motoristas para cada tipo de veículo, do seu carro particular a ônibus e caminhões. Você escolhe, nós dirigimos.</p>
+        </div>
+        <ul class="drivers-checks reveal" aria-label="Tipos de motorista SAVE">
+          <li><span class="drivers-check-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span>Movimentação de veículos particulares</span></li>
+          <li><span class="drivers-check-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span>Movimentação de ônibus e caminhões</span></li>
+          <li><span class="drivers-check-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span>Movimentação dentro de Lima ou nas províncias</span></li>
+          <li><span class="drivers-check-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span>Movimentação executiva</span></li>
+        </ul>
+        <div class="drivers-grid">
+
+          <article class="driver-card reveal reveal-delay-1">
+            <div class="driver-photo">
+              <img src="chofer-a1.webp" alt="SUV particular com um Motorista A1 da SAVE, motorista particular em Lima" width="640" height="800" loading="lazy" decoding="async">
+              <span class="driver-badge" aria-hidden="true">A1</span>
+            </div>
+            <div class="driver-body">
+              <h3>Motorista A1</h3>
+              <p class="driver-type">Veículos particulares</p>
+              <p>Para o seu carro, SUV ou picape de uso particular. Um motorista certificado dirige o seu veículo até o destino, com o cuidado de sempre.</p>
+              <a href="https://wa.me/51981560156?text=Ol%C3%A1!%20Quero%20solicitar%20um%20motorista%20SAVE%20%28Motorista%20A1%29%20para%20o%20meu%20ve%C3%ADculo%20particular."
+                 target="_blank" rel="noopener" class="service-link" data-event="whatsapp_click" data-origen="conductor_a1">
+                Solicitar Motorista A1
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </article>
+
+          <article class="driver-card reveal reveal-delay-2">
+            <div class="driver-photo">
+              <img src="chofer-a2b.webp" alt="Ônibus dirigido por um Motorista A2B da SAVE, motorista para ônibus em Lima" width="640" height="800" loading="lazy" decoding="async">
+              <span class="driver-badge" aria-hidden="true">A2B</span>
+            </div>
+            <div class="driver-body">
+              <h3>Motorista A2B</h3>
+              <p class="driver-type">Veículos com mercadoria ou ônibus</p>
+              <p>Para minivans, ônibus e veículos que transportam mercadoria. Movimentamos a sua unidade com um motorista da categoria exigida, em Lima ou para as províncias.</p>
+              <a href="https://wa.me/51981560156?text=Ol%C3%A1!%20Quero%20pedir%20um%20or%C3%A7amento%20de%20motorista%20SAVE%20%28Motorista%20A2B%29%20para%20um%20%C3%B4nibus%20ou%20ve%C3%ADculo%20com%20mercadoria."
+                 target="_blank" rel="noopener" class="service-link" data-event="whatsapp_click" data-origen="conductor_a2b">
+                Pedir orçamento: Motorista A2B
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </article>
+
+          <article class="driver-card reveal reveal-delay-3">
+            <div class="driver-photo">
+              <img src="chofer-a3c.webp" alt="Caminhão basculante com um Motorista A3C da SAVE, motorista para transporte pesado" width="640" height="800" loading="lazy" decoding="async">
+              <span class="driver-badge" aria-hidden="true">A3C</span>
+            </div>
+            <div class="driver-body">
+              <h3>Motorista A3C</h3>
+              <p class="driver-type">Unidades de transporte pesado</p>
+              <p>Para caminhões e unidades de carga pesada. Um motorista especializado movimenta a sua unidade dentro de Lima ou para as províncias.</p>
+              <a href="https://wa.me/51981560156?text=Ol%C3%A1!%20Quero%20pedir%20um%20or%C3%A7amento%20de%20motorista%20SAVE%20%28Motorista%20A3C%29%20para%20uma%20unidade%20de%20transporte%20pesado."
+                 target="_blank" rel="noopener" class="service-link" data-event="whatsapp_click" data-origen="conductor_a3c">
+                Pedir orçamento: Motorista A3C
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </article>
         </div>
       </div>
     </section>
@@ -2864,6 +3058,7 @@
             <li><a href="#servicios">Motoristas para Casamentos</a></li>
             <li><a href="#servicios">Carro à oficina</a></li>
             <li><a href="#servicios">Viagens fora de Lima</a></li>
+            <li><a href="#tipos-de-chofer">Tipos de motorista</a></li>
           </ul>
         </div>
         <div class="footer-col">
