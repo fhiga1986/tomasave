@@ -2172,65 +2172,91 @@
     }
 
     /* ─── TIPOS DE CONDUCTOR (A1 / A2B / A3C) ─── */
-    .drivers { padding: var(--section-py) 0; background: var(--off-white); }
-    .drivers-header { text-align: center; margin-bottom: 36px; }
+    .drivers { padding: 64px 0 56px; background: var(--off-white); border-bottom: 1px solid rgba(0,0,0,.06); }
+    .drivers-header { text-align: center; margin-bottom: 22px; }
     .drivers-header .section-desc { margin: 0 auto; }
+    /* Chips de beneficios (en lugar de lista a dos columnas: menos altura, más escaneable) */
     .drivers-checks {
-      display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px 28px;
-      max-width: 760px; margin: 0 auto 48px; padding: 0;
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 10px;
+      max-width: 880px; margin: 0 auto 34px; padding: 0; list-style: none;
     }
     .drivers-checks li {
-      display: flex; align-items: center; gap: 12px;
-      font-size: 1rem; font-weight: 500; color: var(--gray-dark); line-height: 1.4;
+      display: flex; align-items: center; gap: 10px;
+      background: var(--white); border: 1px solid rgba(0,0,0,.08); border-radius: 999px;
+      padding: 7px 16px 7px 8px; box-shadow: 0 6px 18px -10px rgba(0,0,0,.12);
+      font-size: .92rem; font-weight: 600; color: var(--gray-dark); line-height: 1.3;
     }
     .drivers-check-ico {
-      flex: none; width: 26px; height: 26px; border-radius: 50%;
-      background: var(--green); color: var(--white);
+      flex: none; width: 24px; height: 24px; border-radius: 50%;
+      background: var(--green); color: var(--black);
       display: inline-flex; align-items: center; justify-content: center;
     }
-    .drivers-check-ico svg { width: 15px; height: 15px; }
-    .drivers-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; }
+    .drivers-check-ico svg { width: 14px; height: 14px; }
+    .drivers-carousel { position: relative; }
+    .drivers-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
     .driver-card {
-      display: flex; flex-direction: column; background: var(--white);
-      border: 1px solid var(--gray-mid); border-radius: var(--radius-lg);
-      overflow: hidden; transition: var(--transition);
+      position: relative; display: flex; flex-direction: column; background: var(--white);
+      border: 1px solid rgba(0,0,0,.08); border-radius: var(--radius-lg);
+      overflow: hidden; box-shadow: 0 10px 30px -14px rgba(0,0,0,.12); transition: var(--transition);
     }
-    .driver-card:hover { border-color: rgba(45,198,83,0.45); box-shadow: var(--shadow-card); transform: translateY(-4px); }
-    .driver-photo { position: relative; aspect-ratio: 4 / 5; background: var(--gray-light); overflow: hidden; }
-    .driver-photo img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s ease; }
+    .driver-card:hover { border-color: rgba(45,198,83,0.5); box-shadow: var(--shadow-card); transform: translateY(-4px); }
+    .driver-photo { position: relative; aspect-ratio: 1 / 1; background: var(--gray-light); overflow: hidden; }
+    .driver-photo::after { content: ''; position: absolute; inset: auto 0 0 0; height: 45%; background: linear-gradient(to top, rgba(0,0,0,.55), transparent); pointer-events: none; }
+    .driver-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 40%; transition: transform .6s ease; }
     .driver-card:hover .driver-photo img { transform: scale(1.04); }
     .driver-badge {
-      position: absolute; top: 14px; left: 14px;
-      background: var(--green); color: var(--black);
-      font-weight: 700; font-size: .95rem; letter-spacing: .06em;
-      padding: 6px 14px; border-radius: 999px; box-shadow: 0 2px 10px rgba(0,0,0,.25);
+      position: absolute; left: 16px; bottom: 14px; z-index: 1;
+      font-family: var(--font-display); font-weight: 800; font-size: 1.9rem; letter-spacing: -0.02em; line-height: 1;
+      color: var(--white); text-shadow: 0 2px 12px rgba(0,0,0,.5);
     }
-    .driver-body { display: flex; flex-direction: column; flex: 1; padding: 24px 24px 26px; }
-    .driver-body h3 { font-family: var(--font-display); font-size: 1.55rem; font-weight: 700; line-height: 1.15; color: var(--black); margin-bottom: 4px; }
-    .driver-type { font-size: .78rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--green-dark); margin-bottom: 12px; }
-    .driver-body p { font-size: .94rem; font-weight: 300; color: var(--gray-text); line-height: 1.7; margin-bottom: 20px; }
+    .driver-badge::after { content: ''; display: block; width: 36px; height: 4px; border-radius: 2px; background: var(--green); margin-top: 6px; }
+    .driver-body { display: flex; flex-direction: column; flex: 1; padding: 20px 22px 22px; }
+    .driver-body h3 { font-family: var(--font-display); font-size: 1.35rem; font-weight: 700; line-height: 1.15; color: var(--black); margin-bottom: 4px; }
+    .driver-type { font-size: .76rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--green-text); margin-bottom: 10px; }
+    .driver-body p { font-size: .92rem; font-weight: 400; color: var(--gray-text); line-height: 1.6; margin-bottom: 16px; }
+    .driver-body p.driver-type { font-weight: 700; color: var(--green-text); margin-bottom: 10px; }
     .driver-links { margin-top: auto; display: flex; flex-wrap: wrap; align-items: center; gap: 10px 20px; }
     .driver-more { font-size: .85rem; font-weight: 600; color: var(--gray-dark); border-bottom: 1px solid var(--gray-mid); padding-bottom: 1px; transition: color .2s, border-color .2s; }
     .driver-more:hover, .driver-more:focus-visible { color: var(--green-dark); border-color: var(--green); }
+    /* Navegación del carrusel: solo aparece cuando las tarjetas no caben (≤1024px) */
+    .drivers-nav { display: none; }
     @media (max-width: 1024px) {
-      .drivers-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .drivers-grid .driver-card:last-child { grid-column: 1 / -1; flex-direction: row; }
-      .drivers-grid .driver-card:last-child .driver-photo { flex: 0 0 42%; aspect-ratio: auto; }
-      .drivers-grid .driver-card:last-child .driver-body { justify-content: center; }
+      .drivers { padding: 52px 0 44px; }
+      .drivers-grid {
+        display: flex; gap: 16px; overflow-x: auto; overscroll-behavior-x: contain;
+        scroll-snap-type: x mandatory; scroll-padding-inline: 24px;
+        margin-inline: -24px; padding: 4px 24px 18px;
+        scrollbar-width: none; -webkit-overflow-scrolling: touch;
+      }
+      .drivers-grid::-webkit-scrollbar { display: none; }
+      .driver-card { flex: 0 0 min(78vw, 340px); scroll-snap-align: start; }
+      .driver-card:hover { transform: none; }
+      .drivers-nav { display: flex; align-items: center; justify-content: center; gap: 18px; margin-top: 2px; }
+      .drivers-arrow {
+        width: 48px; height: 48px; border-radius: 50%; border: 1px solid rgba(0,0,0,.12);
+        background: var(--white); color: var(--black); display: inline-flex; align-items: center; justify-content: center;
+        cursor: pointer; box-shadow: 0 6px 18px -8px rgba(0,0,0,.2); transition: var(--transition);
+      }
+      .drivers-arrow svg { width: 20px; height: 20px; }
+      .drivers-arrow:hover, .drivers-arrow:focus-visible { border-color: var(--green); color: var(--green-dark); }
+      .drivers-arrow[disabled] { opacity: .35; cursor: default; }
+      .drivers-dots { display: flex; gap: 8px; }
+      .drivers-dots span { width: 8px; height: 8px; border-radius: 50%; background: var(--gray-mid); transition: var(--transition); }
+      .drivers-dots span.on { width: 26px; border-radius: 4px; background: var(--green); }
     }
+    @media (min-width: 641px) and (max-width: 1024px) { .driver-card { flex-basis: min(44vw, 340px); } }
     @media (max-width: 640px) {
-      .drivers-header { margin-bottom: 28px; }
-      .drivers-checks { grid-template-columns: 1fr; gap: 12px; margin-bottom: 36px; }
-      .drivers-grid { grid-template-columns: 1fr; gap: 22px; }
-      .drivers-grid .driver-card:last-child { flex-direction: column; }
-      .drivers-grid .driver-card:last-child .driver-photo { flex: none; aspect-ratio: 4 / 5; }
-      .driver-photo { aspect-ratio: 1 / 1; }
-      .drivers-grid .driver-card:last-child .driver-photo { aspect-ratio: 1 / 1; }
-      .driver-body { padding: 22px 20px 24px; }
+      .drivers { padding: 40px 0 34px; }
+      .drivers-header { margin-bottom: 18px; }
+      .drivers-checks { gap: 8px; margin-bottom: 24px; }
+      .drivers-checks li { font-size: .85rem; padding: 6px 14px 6px 7px; }
+      .driver-body { padding: 18px 18px 20px; }
+      .driver-badge { font-size: 1.7rem; }
     }
     @media (prefers-reduced-motion: reduce) {
-      .driver-card, .driver-photo img { transition: none; }
+      .driver-card, .driver-photo img, .drivers-arrow, .drivers-dots span { transition: none; }
       .driver-card:hover, .driver-card:hover .driver-photo img { transform: none; }
+      .drivers-grid { scroll-behavior: auto; }
     }
 
     /* ══════════════════════════════════════════
@@ -2367,6 +2393,7 @@
     ]
   }
   </script>
+  <noscript><style>.drivers-nav{display:none!important}</style></noscript>
 </head>
 <body>
 
@@ -2491,6 +2518,91 @@
         <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M17.657 16.657L13.414 20.9a2 2 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/></svg>Unlimited Coverage</div>
       </div>
     </div>
+
+    <!-- TIPOS DE CONDUCTOR (A1 / A2B / A3C) -->
+    <section class="drivers" id="tipos-de-chofer" aria-labelledby="drivers-heading">
+      <div class="container">
+        <div class="drivers-header reveal">
+          <span class="section-label">Driver types</span>
+          <h2 class="section-title" id="drivers-heading">A Designated Driver for your <em>needs and vehicle type</em></h2>
+          <p class="section-desc">We have drivers for every kind of vehicle, from your private car to buses and trucks. You choose, we drive.</p>
+        </div>
+        <ul class="drivers-checks reveal" aria-label="SAVE driver types">
+          <li><span class="drivers-check-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span>Private vehicle transfers</span></li>
+          <li><span class="drivers-check-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span>Bus and truck transfers</span></li>
+          <li><span class="drivers-check-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span>Trips within Lima or to the provinces</span></li>
+          <li><span class="drivers-check-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span>Executive transfers</span></li>
+        </ul>
+        <div class="drivers-carousel">
+        <div class="drivers-grid" id="drivers-track">
+
+          <article class="driver-card">
+            <div class="driver-photo">
+              <img src="chofer-a1.webp" alt="Private SUV with a SAVE Driver A1, designated driver in Lima" width="640" height="800" loading="lazy" decoding="async">
+              <span class="driver-badge" aria-hidden="true">A1</span>
+            </div>
+            <div class="driver-body">
+              <h3>Driver A1</h3>
+              <p class="driver-type">Private vehicles</p>
+              <p>For your car, SUV or pickup for private use. A certified driver drives your own vehicle to your destination, with the usual care.</p>
+              <div class="driver-links">
+              <a href="https://wa.me/51981560156?text=Hello!%20I%20would%20like%20a%20SAVE%20designated%20driver%20%28Driver%20A1%29%20for%20my%20private%20vehicle."
+                 target="_blank" rel="noopener" class="service-link" data-event="whatsapp_click" data-origen="conductor_a1">
+                Request Driver A1
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="driver-card">
+            <div class="driver-photo">
+              <img src="chofer-a2b.webp" alt="Bus driven by a SAVE Driver A2B, designated driver for buses in Lima" width="640" height="800" loading="lazy" decoding="async">
+              <span class="driver-badge" aria-hidden="true">A2B</span>
+            </div>
+            <div class="driver-body">
+              <h3>Driver A2B</h3>
+              <p class="driver-type">Vehicles with cargo or buses</p>
+              <p>For minivans, buses and vehicles carrying cargo. We move your unit with a driver of the category it requires, in Lima or to the provinces.</p>
+              <div class="driver-links">
+              <a href="https://wa.me/51981560156?text=Hello!%20I%20would%20like%20a%20quote%20for%20a%20SAVE%20designated%20driver%20%28Driver%20A2B%29%20for%20a%20bus%20or%20a%20vehicle%20with%20cargo."
+                 target="_blank" rel="noopener" class="service-link" data-event="whatsapp_click" data-origen="conductor_a2b">
+                Get a quote: Driver A2B
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+              <a href="/designated-driver-buses.html" class="driver-more">More about bus drivers</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="driver-card">
+            <div class="driver-photo">
+              <img src="chofer-a3c.webp" alt="Dump truck with a SAVE Driver A3C, designated driver for heavy transport" width="640" height="800" loading="lazy" decoding="async">
+              <span class="driver-badge" aria-hidden="true">A3C</span>
+            </div>
+            <div class="driver-body">
+              <h3>Driver A3C</h3>
+              <p class="driver-type">Heavy transport units</p>
+              <p>For trucks and heavy cargo units. A specialized driver moves your unit within Lima or to the provinces.</p>
+              <div class="driver-links">
+              <a href="https://wa.me/51981560156?text=Hello!%20I%20would%20like%20a%20quote%20for%20a%20SAVE%20designated%20driver%20%28Driver%20A3C%29%20for%20a%20heavy%20transport%20unit."
+                 target="_blank" rel="noopener" class="service-link" data-event="whatsapp_click" data-origen="conductor_a3c">
+                Get a quote: Driver A3C
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+              <a href="/designated-driver-trucks.html" class="driver-more">More about truck drivers</a>
+              </div>
+            </div>
+          </article>
+        </div>
+        <div class="drivers-nav">
+          <button type="button" class="drivers-arrow" data-dir="-1" aria-label="Previous" aria-controls="drivers-track"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M19 12H5M12 5l-7 7 7 7"/></svg></button>
+          <div class="drivers-dots" aria-hidden="true"><span class="on"></span><span></span><span></span></div>
+          <button type="button" class="drivers-arrow" data-dir="1" aria-label="Next" aria-controls="drivers-track"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+        </div>
+      </div>
+      </div>
+    </section>
 
     <!-- STORY CAMPAIGN BANNER -->
     <section class="story-banner" id="campana" aria-label="Social awareness campaign">
@@ -2651,82 +2763,6 @@
     </section>
 
     <!-- TIPOS DE CONDUCTOR -->
-    <section class="drivers" id="tipos-de-chofer" aria-labelledby="drivers-heading">
-      <div class="container">
-        <div class="drivers-header reveal">
-          <span class="section-label">Driver types</span>
-          <h2 class="section-title" id="drivers-heading">A Designated Driver for your <em>needs and vehicle type</em></h2>
-          <p class="section-desc">We have drivers for every kind of vehicle, from your private car to buses and trucks. You choose, we drive.</p>
-        </div>
-        <ul class="drivers-checks reveal" aria-label="SAVE driver types">
-          <li><span class="drivers-check-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span>Private vehicle transfers</span></li>
-          <li><span class="drivers-check-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span>Bus and truck transfers</span></li>
-          <li><span class="drivers-check-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span>Trips within Lima or to the provinces</span></li>
-          <li><span class="drivers-check-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span>Executive transfers</span></li>
-        </ul>
-        <div class="drivers-grid">
-
-          <article class="driver-card reveal reveal-delay-1">
-            <div class="driver-photo">
-              <img src="chofer-a1.webp" alt="Private SUV with a SAVE Driver A1, designated driver in Lima" width="640" height="800" loading="lazy" decoding="async">
-              <span class="driver-badge" aria-hidden="true">A1</span>
-            </div>
-            <div class="driver-body">
-              <h3>Driver A1</h3>
-              <p class="driver-type">Private vehicles</p>
-              <p>For your car, SUV or pickup for private use. A certified driver drives your own vehicle to your destination, with the usual care.</p>
-              <div class="driver-links">
-              <a href="https://wa.me/51981560156?text=Hello!%20I%20would%20like%20a%20SAVE%20designated%20driver%20%28Driver%20A1%29%20for%20my%20private%20vehicle."
-                 target="_blank" rel="noopener" class="service-link" data-event="whatsapp_click" data-origen="conductor_a1">
-                Request Driver A1
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-              </a>
-              </div>
-            </div>
-          </article>
-
-          <article class="driver-card reveal reveal-delay-2">
-            <div class="driver-photo">
-              <img src="chofer-a2b.webp" alt="Bus driven by a SAVE Driver A2B, designated driver for buses in Lima" width="640" height="800" loading="lazy" decoding="async">
-              <span class="driver-badge" aria-hidden="true">A2B</span>
-            </div>
-            <div class="driver-body">
-              <h3>Driver A2B</h3>
-              <p class="driver-type">Vehicles with cargo or buses</p>
-              <p>For minivans, buses and vehicles carrying cargo. We move your unit with a driver of the category it requires, in Lima or to the provinces.</p>
-              <div class="driver-links">
-              <a href="https://wa.me/51981560156?text=Hello!%20I%20would%20like%20a%20quote%20for%20a%20SAVE%20designated%20driver%20%28Driver%20A2B%29%20for%20a%20bus%20or%20a%20vehicle%20with%20cargo."
-                 target="_blank" rel="noopener" class="service-link" data-event="whatsapp_click" data-origen="conductor_a2b">
-                Get a quote: Driver A2B
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-              </a>
-              <a href="/designated-driver-buses.html" class="driver-more">More about bus drivers</a>
-              </div>
-            </div>
-          </article>
-
-          <article class="driver-card reveal reveal-delay-3">
-            <div class="driver-photo">
-              <img src="chofer-a3c.webp" alt="Dump truck with a SAVE Driver A3C, designated driver for heavy transport" width="640" height="800" loading="lazy" decoding="async">
-              <span class="driver-badge" aria-hidden="true">A3C</span>
-            </div>
-            <div class="driver-body">
-              <h3>Driver A3C</h3>
-              <p class="driver-type">Heavy transport units</p>
-              <p>For trucks and heavy cargo units. A specialized driver moves your unit within Lima or to the provinces.</p>
-              <div class="driver-links">
-              <a href="https://wa.me/51981560156?text=Hello!%20I%20would%20like%20a%20quote%20for%20a%20SAVE%20designated%20driver%20%28Driver%20A3C%29%20for%20a%20heavy%20transport%20unit."
-                 target="_blank" rel="noopener" class="service-link" data-event="whatsapp_click" data-origen="conductor_a3c">
-                Get a quote: Driver A3C
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-              </a>
-              <a href="/designated-driver-trucks.html" class="driver-more">More about truck drivers</a>
-              </div>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
 
     <!-- BENEFITS -->
     <section class="benefits" id="beneficios" aria-labelledby="benefits-heading" data-bg="Background.webp">
@@ -3392,6 +3428,44 @@
       visObs.observe(banner);
     })();
     // ─────────────────────────────────────────────
+  </script>
+
+  <script>
+    // Carrusel de tipos de conductor: mejora progresiva (sin JS sigue siendo deslizable con el dedo)
+    (function () {
+      var track = document.getElementById('drivers-track');
+      if (!track) return;
+      var nav = document.querySelector('.drivers-nav');
+      var cards = track.querySelectorAll('.driver-card');
+      var dots = nav ? nav.querySelectorAll('.drivers-dots span') : [];
+      var prev = nav && nav.querySelector('[data-dir="-1"]');
+      var next = nav && nav.querySelector('[data-dir="1"]');
+      var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      function current() {
+        var x = track.scrollLeft, best = 0, d = 1e9;
+        for (var i = 0; i < cards.length; i++) {
+          var dd = Math.abs(cards[i].offsetLeft - track.offsetLeft - 24 - x);
+          if (dd < d) { d = dd; best = i; }
+        }
+        if (track.scrollLeft + track.clientWidth >= track.scrollWidth - 4) best = cards.length - 1;
+        return best;
+      }
+      function sync() {
+        var i = current();
+        for (var k = 0; k < dots.length; k++) dots[k].className = k === i ? 'on' : '';
+        if (prev) prev.disabled = i === 0;
+        if (next) next.disabled = i === cards.length - 1;
+      }
+      function go(dir) {
+        var i = Math.max(0, Math.min(cards.length - 1, current() + dir));
+        track.scrollTo({ left: cards[i].offsetLeft - track.offsetLeft - 24, behavior: reduce ? 'auto' : 'smooth' });
+      }
+      if (prev) prev.addEventListener('click', function () { go(-1); });
+      if (next) next.addEventListener('click', function () { go(1); });
+      var t; track.addEventListener('scroll', function () { clearTimeout(t); t = setTimeout(sync, 60); }, { passive: true });
+      window.addEventListener('resize', sync);
+      sync();
+    })();
   </script>
 
   <!-- Google Tag Manager (deferred) -->
