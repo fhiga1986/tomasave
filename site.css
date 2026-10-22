@@ -2010,6 +2010,18 @@
     .hero-trust li { display: inline-flex; align-items: center; gap: 8px; font-size: .92rem; font-weight: 500; color: rgba(255,255,255,.9); line-height: 1.4; }
     .hero-trust svg { flex: none; width: 17px; height: 17px; padding: 3px; border-radius: 50%; background: var(--green); color: var(--black); }
 
+    /* Enlaces por tipo de vehículo bajo el hero (enlazado interno con anchor descriptivo hacia las páginas de servicio) */
+    .hero-types { display: flex; flex-wrap: wrap; gap: 8px 10px; margin: 18px 0 0; padding: 0; list-style: none; animation: fadeUp 0.5s 0.32s ease both; }
+    .hero-types a {
+      display: inline-flex; align-items: center; min-height: 40px; padding: 8px 16px; border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.32); color: rgba(255,255,255,.92); font-size: .9rem; font-weight: 600; line-height: 1.2;
+      transition: border-color .2s, color .2s, background .2s;
+    }
+    .hero-types a:hover, .hero-types a:focus-visible { border-color: var(--green); color: var(--white); background: rgba(45,198,83,.14); }
+    @media (max-width: 1024px) { .hero-types { justify-content: center; } }
+    @media (max-width: 640px) { .hero-types a { min-height: 44px; font-size: .92rem; } }
+    @media (prefers-reduced-motion: reduce) { .hero-types { animation: none; } .hero-types a { transition: none; } }
+
     /* CTA principal con pulso suave (se desactiva con prefers-reduced-motion) */
     .hero-actions .btn-wa, .sp-actions .btn-wa { animation: waCtaPulse 2.6s ease-out infinite; }
     @keyframes waCtaPulse {
